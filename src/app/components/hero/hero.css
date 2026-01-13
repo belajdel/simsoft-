@@ -274,7 +274,6 @@
 .hero-about .section-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: var(--spacing-md);
-  background: linear-gradient(135deg, var(--primary-white) 0%, var(--text-gray) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

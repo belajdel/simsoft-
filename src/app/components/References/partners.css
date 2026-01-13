@@ -3,7 +3,7 @@
   padding: 5rem var(--spacing-md);
   background: transparent;
   overflow: hidden;
-  --carousel-gap: 2rem;
+  --carousel-gap: 1.5rem;
   --items-visible: 4;
 }
 
@@ -56,10 +56,21 @@
   letter-spacing: -0.02em;
 }
 
+:host-context(.light-theme) .section-title {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .section-description {
   font-size: clamp(1rem, 1.5vw, 1.125rem);
   color: var(--text-gray-light);
   line-height: 1.7;
+}
+
+:host-context(.light-theme) .section-description {
+  color: #1e40af;
 }
 
 /* Carousel Styles */
@@ -92,7 +103,7 @@
 .partner-card {
   flex: 0 0 calc((100% - (var(--items-visible) - 1) * var(--carousel-gap)) / var(--items-visible));
   min-width: 0;
-  height: 240px;
+  height: 160px;
   perspective: 1000px;
   animation: fadeInUp 0.6s ease-out both;
 }
@@ -104,7 +115,7 @@
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  padding: 2rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -201,6 +212,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -209,29 +221,27 @@
 
 /* Navigation Buttons */
 .carousel-button {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--primary-white);
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  border: none;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
   position: relative;
   z-index: 2;
 }
 
 .carousel-button:hover:not(:disabled) {
   transform: scale(1.05);
-  border-color: rgba(0, 132, 255, 0.3);
-  background: rgba(0, 132, 255, 0.1);
-  box-shadow: 0 4px 16px rgba(0, 132, 255, 0.2);
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  box-shadow: 0 6px 16px rgba(30, 64, 175, 0.4);
 }
 
 .carousel-button:active:not(:disabled) {
@@ -263,9 +273,9 @@
     --items-visible: 3;
     --carousel-gap: 1.5rem;
   }
-  
+
   .partner-card {
-    height: 220px;
+    height: 140px;
   }
 }
 
@@ -285,7 +295,7 @@
   }
 
   .partner-card {
-    height: 200px;
+    height: 120px;
   }
 
   .partner-card-inner {
@@ -309,7 +319,7 @@
   }
 
   .partner-card-inner {
-    padding: 1.25rem;
+    padding: 1rem;
   }
 
   .carousel-button {
@@ -332,7 +342,7 @@
   .partner-card {
     height: 160px;
   }
-  
+
   /* For single item view, adjust container padding */
   .carousel-container {
     padding: 0;

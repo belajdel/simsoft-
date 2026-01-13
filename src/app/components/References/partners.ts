@@ -16,7 +16,7 @@ interface Partner {
 export class Partners {
   currentIndex = signal(0);
   itemsPerView = signal(4); // Default to 4
-  
+
   partners: Partner[] = [
     { name: 'AF-Beton', logo: '/References/AF-Beton.png' },
     { name: 'AF-TR', logo: '/References/AF-TR.png' },
@@ -47,7 +47,7 @@ export class Partners {
 
   // Computed properties for button states
   canGoPrevious = computed(() => this.currentIndex() > 0);
-  
+
   canGoNext = computed(() => {
     const maxIndex = Math.max(0, this.partners.length - this.itemsPerView());
     return this.currentIndex() < maxIndex;

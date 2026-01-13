@@ -61,10 +61,21 @@
   background-clip: text;
 }
 
+:host-context(.light-theme) .section-title {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .section-description {
   font-size: clamp(1rem, 1.5vw, 1.125rem);
   color: var(--text-gray-light);
   line-height: 1.7;
+}
+
+:host-context(.light-theme) .section-description {
+  color: #1e40af;
 }
 
 .contact-content {
@@ -104,6 +115,17 @@
   transform: translateY(-2px);
 }
 
+:host-context(.light-theme) .info-card {
+  background: rgba(255, 252, 247, 0.8);
+  border-color: rgba(30, 64, 175, 0.1);
+}
+
+:host-context(.light-theme) .info-card:hover {
+  border-color: var(--accent-blue);
+  background: rgba(255, 252, 247, 0.95);
+  box-shadow: 0 10px 30px rgba(30, 64, 175, 0.1);
+}
+
 .info-icon {
   width: 48px;
   height: 48px;
@@ -122,12 +144,21 @@
   color: var(--primary-white);
 }
 
+:host-context(.light-theme) .info-card h3 {
+  color: #2c5282;
+}
+
 .info-card p,
 .info-card a {
   font-size: 0.9375rem;
   color: var(--text-gray-light);
   line-height: 1.6;
   display: block;
+}
+
+:host-context(.light-theme) .info-card p,
+:host-context(.light-theme) .info-card a {
+  color: #4a5568;
 }
 
 .info-card a {
@@ -161,6 +192,11 @@
   backdrop-filter: blur(10px);
 }
 
+:host-context(.light-theme) .contact-form-wrapper {
+  background: rgba(255, 252, 247, 0.8);
+  border-color: rgba(30, 64, 175, 0.1);
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -189,6 +225,10 @@
   color: var(--primary-white);
 }
 
+:host-context(.light-theme) .form-group label {
+  color: #2c5282;
+}
+
 .form-group input,
 .form-group textarea {
   padding: 0.875rem 1rem;
@@ -203,11 +243,24 @@
   box-sizing: border-box;
 }
 
+:host-context(.light-theme) .form-group input,
+:host-context(.light-theme) .form-group textarea {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(30, 64, 175, 0.2);
+  color: var(--text-gray);
+}
+
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: var(--accent-blue);
   background: rgba(255, 255, 255, 0.08);
+}
+
+:host-context(.light-theme) .form-group input:focus,
+:host-context(.light-theme) .form-group textarea:focus {
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.1);
 }
 
 .form-group textarea {

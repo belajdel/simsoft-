@@ -54,10 +54,21 @@
   letter-spacing: -0.02em;
 }
 
+:host-context(.light-theme) .section-title {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .section-description {
   font-size: clamp(1rem, 1.5vw, 1.125rem);
   color: var(--text-gray-light);
   line-height: 1.7;
+}
+
+:host-context(.light-theme) .section-description {
+  color: #1e40af;
 }
 
 /* Partners Grid */
@@ -196,6 +207,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -274,4 +286,3 @@
     margin: 0 auto;
   }
 }
-

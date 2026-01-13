@@ -340,7 +340,7 @@ body {
 .light-theme .section-label {
   background: rgba(30, 64, 175, 0.1);
   border: 1px solid rgba(30, 64, 175, 0.2);
-  color: var(--accent-blue);
+  color:blue
 }
 
 .light-theme .section-title {
@@ -348,10 +348,12 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: blue;
+  
 }
 
 .light-theme .section-description {
-  color: var(--text-gray-light);
+  color:rgb(97, 97, 189) 
 }
 
 /* Buttons */

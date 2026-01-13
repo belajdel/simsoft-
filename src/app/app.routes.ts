@@ -3,7 +3,7 @@ import { Home } from './components/home/home';
 import { About } from './components/about/about';
 import { Products } from './components/products/products';
 import { ProductDetail } from './components/product-detail/product-detail';
-import { Partners } from './components/partners/partners';
+import { Partners } from './components/References/partners';
 import { Partenaires } from './components/partenaires/partenaires';
 import { Contact } from './components/contact/contact';
 import { Erreur } from './erreur/erreur';

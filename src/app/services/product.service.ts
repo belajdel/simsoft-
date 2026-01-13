@@ -37,7 +37,7 @@ export class ProductService {
       ],
       category: 'ERP',
       testimonials: [
-       
+
       ]
     },
     {
@@ -74,7 +74,7 @@ export class ProductService {
     // Cybersecurity
     {
       id: 'sophos',
-      iconSvg: 'shield',
+      iconSvg: 'network',
       title: 'Sophos XG Firewall',
       description: 'Protection cybersécurité avancée avec pare-feu nouvelle génération et détection des menaces.',
       longDescription: 'Sophos XG Firewall révolutionne la cybersécurité en offrant une protection de nouvelle génération contre toutes les menaces modernes. Grâce à la technologie Security Heartbeat™, votre pare-feu communique avec vos endpoints pour une réponse automatisée aux incidents. Filtrage applicatif intelligent, protection anti-ransomware, et visibilité complète sur votre trafic réseau font de Sophos la référence en matière de sécurité réseau.',
