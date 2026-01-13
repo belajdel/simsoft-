@@ -81,32 +81,38 @@
 
 /* Light theme adjustments */
 .light-theme .breadcrumb-link {
-  color: var(--text-gray);
+  color: #6b6560;
 }
 
 .light-theme .breadcrumb-link:hover {
-  color: var(--accent-blue);
-  background: rgba(0, 102, 204, 0.1);
+  color: #1e40af;
+  background: rgba(30, 64, 175, 0.08);
 }
 
 .light-theme .breadcrumb-current {
-  color: var(--primary-white);
-  background: rgba(0, 102, 204, 0.1);
-  border-color: rgba(0, 102, 204, 0.2);
+  color: #1e40af;
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.1) 0%, rgba(59, 130, 246, 0.08) 100%);
+  border: 1px solid rgba(30, 64, 175, 0.2);
 }
 
 .light-theme .breadcrumb-separator {
-  color: var(--border-gray);
+  color: #d9d2c7;
+}
+
+.light-theme .breadcrumb-icon {
+  color: #1e40af;
 }
 
 .light-theme .breadcrumb-back {
-  border-color: rgba(0, 102, 204, 0.2);
-  color: var(--text-gray);
+  border-color: rgba(232, 226, 217, 0.8);
+  color: #6b6560;
+  background: rgba(255, 252, 247, 0.9);
 }
 
 .light-theme .breadcrumb-back:hover {
-  background: rgba(0, 102, 204, 0.1);
-  border-color: rgba(0, 102, 204, 0.3);
+  background: rgba(30, 64, 175, 0.08);
+  border-color: rgba(30, 64, 175, 0.3);
+  color: #1e40af;
 }
 
 /* Mobile responsiveness */

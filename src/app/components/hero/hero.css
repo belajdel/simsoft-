@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: calc(80px + var(--spacing-lg)) var(--spacing-md) var(--spacing-lg);
+  padding: calc(80px + var(--spacing-lg)) var(--spacing-md) var(--spacing-md);
   background: transparent;
 }
 
@@ -84,11 +84,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
 }
 
 .hero-logo-wrapper {
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: 0.5rem;
 }
 
 .hero-logo {
@@ -108,7 +108,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: shimmer 3s linear infinite;
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: 0.5rem;
 }
 
 @keyframes shimmer {
@@ -125,7 +125,7 @@
   font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 300;
   color: var(--text-gray);
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: 0.5rem;
   letter-spacing: 0.02em;
 }
 
@@ -143,7 +143,7 @@
   color: var(--text-gray-light);
   max-width: 700px;
   line-height: 1.8;
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
 }
 
 .hero-cta {
@@ -151,7 +151,7 @@
   gap: var(--spacing-md);
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 .btn {
@@ -244,14 +244,14 @@
 .hero-about {
   max-width: 1400px;
   margin: 0 auto;
-  margin-top: var(--spacing-md);
-  padding-top: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
   border-top: 1px solid var(--border-gray);
 }
 
 .hero-about .section-header {
   text-align: center;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -274,6 +274,7 @@
 .hero-about .section-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: var(--spacing-md);
+  background: linear-gradient(135deg, var(--primary-white) 0%, var(--text-gray) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -633,7 +634,7 @@
 }
 
 :host-context(.light-theme) .hero-about .section-title {
-  background: linear-gradient(135deg, #2d2a26 0%, #4a4541 100%);
+  background: linear-gradient(135deg, #1e293b 0%, #334155 60%, #1e40af 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

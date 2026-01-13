@@ -22,10 +22,10 @@
       <div class="footer-section">
         <h4 class="footer-title">Produits</h4>
         <ul class="footer-links">
-          <li><a href="#produits">Divalto</a></li>
-          <li><a href="#produits">FirstParc</a></li>
-          <li><a href="#produits">WaveSoft</a></li>
-          <li><a href="#produits">Sophos</a></li>
+          <li><a [routerLink]="['/produits', 'divalto']">Divalto ERP</a></li>
+          <li><a [routerLink]="['/produits', 'firstparc']">FirstParc GMAO</a></li>
+          <li><a [routerLink]="['/produits', 'wavesoft']">WaveSoft</a></li>
+          <li><a [routerLink]="['/produits', 'sophos']">Sophos XG</a></li>
         </ul>
       </div>
 
@@ -76,8 +76,8 @@
       </div>
     </div>
 
-    <div class="footer-section">
-      <p class="footeropyright">&copy; {{ currentYear }} Simsoft Technologies. Tous droits réservés.</p>
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; {{ currentYear }} Simsoft Technologies. Tous droits réservés.</p>
     </div>
   </div>
 </footer>

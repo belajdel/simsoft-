@@ -46,6 +46,14 @@
   border-radius: 20px;
 }
 
+:host-context(.light-theme) .section-label {
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.1) 0%, rgba(59, 130, 246, 0.08) 100%);
+  border: 1px solid rgba(30, 64, 175, 0.2);
+  color: #1e40af;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
 .section-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 1.25rem;
@@ -57,7 +65,7 @@
 }
 
 :host-context(.light-theme) .section-title {
-  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #1e293b 0%, #334155 60%, #1e40af 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -70,7 +78,9 @@
 }
 
 :host-context(.light-theme) .section-description {
-  color: #1e40af;
+  color: #4a4541;
+  font-weight: 400;
+  line-height: 1.8;
 }
 
 /* Carousel Styles */

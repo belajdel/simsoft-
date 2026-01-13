@@ -338,22 +338,22 @@ body {
 
 /* Section Labels */
 .light-theme .section-label {
-  background: rgba(30, 64, 175, 0.1);
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.1) 0%, rgba(59, 130, 246, 0.08) 100%);
   border: 1px solid rgba(30, 64, 175, 0.2);
-  color:blue
+  color: #1e40af;
+  font-weight: 600;
 }
 
 .light-theme .section-title {
-  background: linear-gradient(135deg, var(--primary-white) 0%, var(--text-gray) 100%);
+  background: linear-gradient(135deg, #1e293b 0%, #334155 60%, #1e40af 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: blue;
-  
 }
 
 .light-theme .section-description {
-  color:rgb(97, 97, 189) 
+  color: #4a4541;
+  line-height: 1.8;
 }
 
 /* Buttons */
@@ -762,7 +762,7 @@ h6 {
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.1;
-  color: black
+  color: var(--primary-white);
 }
 
 h1 {
@@ -780,18 +780,18 @@ h3 {
 p {
   font-size: clamp(1rem, 1.5vw, 1.125rem);
   line-height: 1.7;
-  color: rgb(231, 223, 223)
+  color: var(--text-gray);
 }
 
 /* Links */
 a {
-  color: black;
+  color: var(--accent-blue);
   text-decoration: none;
   transition: all var(--transition-base);
 }
 
 a:hover {
-  color: var(--accent-blue);
+  color: var(--accent-blue-light);
 }
 
 /* Buttons */
