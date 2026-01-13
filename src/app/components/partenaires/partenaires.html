@@ -9,23 +9,14 @@
     </div>
 
     <div class="partners-grid" *ngIf="partners.length > 0">
-      <div 
-        class="partner-card" 
-        *ngFor="let partner of partners; let i = index"
-        [style.animation-delay]="(i * 0.1) + 's'"
-      >
+      <div class="partner-card" *ngFor="let partner of partners; let i = index"
+        [style.animation-delay]="(i * 0.1) + 's'">
         <div class="partner-card-inner">
           <div class="partner-logo-wrapper">
             <div class="logo-background"></div>
-            <img 
-              [src]="partner.logo" 
-              [alt]="partner.name"
-              class="partner-logo"
-              [class.logo-divalto]="partner.name === 'Divalto'"
-              [class.logo-wavesoft]="partner.name === 'WaveSoft'"
-              loading="lazy"
-              (error)="$event.target.src='/Partenaires/logo-1.png'"
-            />
+            <img [src]="getPartnerLogo(partner)" [alt]="partner.name" class="partner-logo"
+              [class.logo-divalto]="partner.name === 'Divalto'" [class.logo-wavesoft]="partner.name === 'WaveSoft'"
+              loading="lazy" (error)="$event.target.src='/Partenaires/logo-1.png'" />
           </div>
           <div class="partner-hover-effect"></div>
         </div>
