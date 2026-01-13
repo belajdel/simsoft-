@@ -1,8 +1,12 @@
 .contact {
   position: relative;
-  padding: 4rem 1rem;
+  /* Match the vertical spacing approach used in hero.css - accounts for fixed header */
+  padding: calc(80px + var(--spacing-lg)) var(--spacing-md) var(--spacing-lg);
   background: transparent;
-  /* Removed overflow: hidden which was causing cropping */
+  /* Offset for potential hash navigation to #contact */
+  scroll-margin-top: calc(80px + var(--spacing-lg));
+  /* Ensure content starts below fixed header */
+  min-height: 100vh;
 }
 
 .contact::before {
@@ -38,7 +42,8 @@
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--accent-blue);
-  margin-bottom: 1rem;
+  /* Increased spacing to prevent visual overlap with the title */
+  margin-bottom: 1.5rem;
   padding: 0.5rem 1.25rem;
   background: rgba(0, 132, 255, 0.1);
   border: 1px solid rgba(0, 132, 255, 0.2);
@@ -47,7 +52,9 @@
 
 .section-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
-  margin-bottom: 1.25rem;
+  /* Ensure clear separation from the label above */
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
   background: linear-gradient(135deg, var(--primary-white) 0%, var(--text-gray) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -299,7 +306,8 @@
 
 @media (max-width: 768px) {
   .contact {
-    padding: 3rem 1rem;
+    /* Maintain header offset on mobile - match hero.css mobile padding */
+    padding: calc(80px + var(--spacing-md)) var(--spacing-sm) var(--spacing-lg);
   }
 
   .contact-info-wrapper {
