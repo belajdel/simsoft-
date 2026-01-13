@@ -16,19 +16,19 @@ export class LanguageSwitcher {
   currentLanguage = computed(() => this.languageService.language());
   isOpen = false;
 
-  languages: { code: Language; name: string;  }[] = [
-    { code: 'fr', name: 'Fr' },
-    { code: 'en', name: 'En' }
+  languages: { code: Language; name: string; flag: string; fullName: string }[] = [
+    { code: 'fr', name: 'Fr', flag: '🇫🇷', fullName: 'Français' },
+    { code: 'en', name: 'En', flag: '🇬🇧', fullName: 'English' }
   ];  
 
   setLanguage(language: Language) {
     this.languageService.setLanguage(language);
+    this.isOpen = false;
     // Force change detection
     this.cdr.detectChanges();
   }
 
-  getCurrentLanguageName(): string {
-    const lang = this.languages.find(l => l.code === this.currentLanguage());
-    return lang?.name || '🌐';
+  getCurrentLanguage(): { code: Language; name: string; flag: string; fullName: string } | undefined {
+    return this.languages.find(l => l.code === this.currentLanguage());
   }
 }

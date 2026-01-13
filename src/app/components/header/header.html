@@ -2,7 +2,7 @@
   <div class="header-container">
     <div class="logo-wrapper">
       <a href="#accueil" class="logo-link" (click)="scrollToSection($event, '#accueil')">
-        <img src="/Logo.png" alt="Simsoft Technologies" class="logo" />
+        <img [src]="logoPath()" alt="Simsoft Technologies" class="logo" />
       </a>
     </div>
 

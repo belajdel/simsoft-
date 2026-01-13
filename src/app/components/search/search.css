@@ -216,8 +216,8 @@
 
 :host-context(.light-theme) .search-input-wrapper:focus-within {
   background: rgba(255, 255, 255, 0.98);
-  border-color: #e07850;
-  box-shadow: 0 0 0 3px rgba(224, 120, 80, 0.12);
+  border-color: #1e40af;
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.12);
 }
 
 :host-context(.light-theme) .search-input {
@@ -238,7 +238,7 @@
 
 :host-context(.light-theme) .search-clear:hover {
   color: #4a4541;
-  background: rgba(224, 120, 80, 0.1);
+  background: rgba(30, 64, 175, 0.1);
 }
 
 :host-context(.light-theme) .search-dropdown {
@@ -249,8 +249,8 @@
 
 :host-context(.light-theme) .search-result-item:hover,
 :host-context(.light-theme) .search-result-item.selected {
-  background: rgba(224, 120, 80, 0.08);
-  border-color: rgba(224, 120, 80, 0.2);
+  background: rgba(30, 64, 175, 0.08);
+  border-color: rgba(30, 64, 175, 0.2);
 }
 
 :host-context(.light-theme) .result-title {
@@ -266,8 +266,8 @@
 }
 
 :host-context(.light-theme) .result-type {
-  background: rgba(224, 120, 80, 0.15);
-  color: #e07850;
+  background: rgba(30, 64, 175, 0.15);
+  color: #1e40af;
 }
 
 :host-context(.light-theme) .result-category {
@@ -280,7 +280,7 @@
 
 :host-context(.light-theme) .search-result-item:hover .result-arrow,
 :host-context(.light-theme) .search-result-item.selected .result-arrow {
-  color: #e07850;
+  color: #1e40af;
 }
 
 :host-context(.light-theme) .search-footer {
@@ -292,7 +292,7 @@
 }
 
 :host-context(.light-theme) .search-more:hover {
-  color: #e07850;
+  color: #1e40af;
 }
 
 :host-context(.light-theme) .no-results-icon {
@@ -312,11 +312,11 @@
 }
 
 :host-context(.light-theme) .search-dropdown::-webkit-scrollbar-thumb {
-  background: rgba(224, 120, 80, 0.3);
+  background: rgba(30, 64, 175, 0.3);
 }
 
 :host-context(.light-theme) .search-dropdown::-webkit-scrollbar-thumb:hover {
-  background: rgba(224, 120, 80, 0.5);
+  background: rgba(30, 64, 175, 0.5);
 }
 
 /* Scrollbar Styling */

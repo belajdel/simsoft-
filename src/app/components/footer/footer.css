@@ -324,7 +324,7 @@ height: 40px;
 }
 
 :host-context(.light-theme) .footer::before {
-  background: linear-gradient(90deg, transparent, rgba(224, 120, 80, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(30, 64, 175, 0.3), transparent);
 }
 
 :host-context(.light-theme) .footer-content {
@@ -348,13 +348,13 @@ height: 40px;
 }
 
 :host-context(.light-theme) .footer-links li a:hover {
-  color: #e07850;
-  background: rgba(224, 120, 80, 0.06);
+  color: #1e40af;
+  background: rgba(30, 64, 175, 0.06);
   padding-left: 0.75rem;
 }
 
 :host-context(.light-theme) .footer-links li a::before {
-  background: #e07850;
+  background: #1e40af;
 }
 
 :host-context(.light-theme) .footer-contact li {
@@ -362,16 +362,16 @@ height: 40px;
 }
 
 :host-context(.light-theme) .footer-contact li:hover {
-  background: rgba(224, 120, 80, 0.04);
+  background: rgba(30, 64, 175, 0.04);
   color: #2d2a26;
 }
 
 :host-context(.light-theme) .footer-contact li svg {
-  color: #e07850;
+  color: #1e40af;
 }
 
 :host-context(.light-theme) .footer-contact li:hover svg {
-  color: #c86040;
+  color: #1e3a8a;
 }
 
 :host-context(.light-theme) .footer-contact li span {
@@ -387,7 +387,7 @@ height: 40px;
 }
 
 :host-context(.light-theme) .footer-contact li:hover a {
-  color: #e07850;
+  color: #1e40af;
 }
 
 :host-context(.light-theme) .footer-copyright {
@@ -399,7 +399,7 @@ height: 40px;
 }
 
 :host-context(.light-theme) .footer-legal a:hover {
-  color: #e07850;
+  color: #1e40af;
 }
 
 :host-context(.light-theme) .separator {

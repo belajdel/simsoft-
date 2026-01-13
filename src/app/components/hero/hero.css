@@ -314,7 +314,7 @@
 
 .hero-about .about-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-md);
   margin-top: var(--spacing-xs);
   width: 100%;
@@ -327,7 +327,8 @@
   border-radius: 12px;
   text-align: center;
   transition: all var(--transition-base);
-  margin-left: 45px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hero-about .stat-card:hover {
@@ -553,7 +554,7 @@
    Warm Sunset Elegance
    ======================================== */
 :host-context(.light-theme) .gradient-orb.orb-1 {
-  background: radial-gradient(circle, rgba(224, 120, 80, 0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(30, 64, 175, 0.18) 0%, transparent 70%);
 }
 
 :host-context(.light-theme) .gradient-orb.orb-2 {
@@ -577,7 +578,7 @@
 }
 
 :host-context(.light-theme) .accent-text {
-  background: linear-gradient(135deg, #e07850 0%, #d4a574 100%);
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -589,14 +590,14 @@
 }
 
 :host-context(.light-theme) .btn-primary {
-  background: linear-gradient(135deg, #e07850 0%, #f09070 100%);
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
   color: #ffffff;
-  box-shadow: 0 8px 24px rgba(224, 120, 80, 0.35);
+  box-shadow: 0 8px 24px rgba(30, 64, 175, 0.35);
 }
 
 :host-context(.light-theme) .btn-primary:hover {
-  background: linear-gradient(135deg, #c86040 0%, #e07850 100%);
-  box-shadow: 0 12px 32px rgba(224, 120, 80, 0.45);
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  box-shadow: 0 12px 32px rgba(30, 64, 175, 0.45);
 }
 
 :host-context(.light-theme) .btn-secondary {
@@ -606,9 +607,9 @@
 }
 
 :host-context(.light-theme) .btn-secondary:hover {
-  background: rgba(224, 120, 80, 0.08);
-  border-color: #e07850;
-  color: #e07850;
+  background: rgba(30, 64, 175, 0.08);
+  border-color: #1e40af;
+  color: #1e40af;
 }
 
 :host-context(.light-theme) .hero-stats {
@@ -616,7 +617,7 @@
 }
 
 :host-context(.light-theme) .stat-number {
-  background: linear-gradient(135deg, #e07850 0%, #d4a574 100%);
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -627,9 +628,9 @@
 }
 
 :host-context(.light-theme) .hero-about .section-label {
-  background: rgba(224, 120, 80, 0.1);
-  border: 1px solid rgba(224, 120, 80, 0.2);
-  color: #e07850;
+  background: rgba(30, 64, 175, 0.1);
+  border: 1px solid rgba(30, 64, 175, 0.2);
+  color: #1e40af;
 }
 
 :host-context(.light-theme) .hero-about .section-title {
@@ -653,12 +654,12 @@
 }
 
 :host-context(.light-theme) .hero-about .stat-card:hover {
-  border-color: #e07850;
-  box-shadow: 0 10px 30px rgba(224, 120, 80, 0.15);
+  border-color: #1e40af;
+  box-shadow: 0 10px 30px rgba(30, 64, 175, 0.15);
 }
 
 :host-context(.light-theme) .hero-about .stat-card .stat-number {
-  background: linear-gradient(135deg, #e07850 0%, #d4a574 100%);
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -669,22 +670,22 @@
 }
 
 :host-context(.light-theme) .hero-about .visual-card {
-  background: linear-gradient(135deg, rgba(224, 120, 80, 0.04) 0%, rgba(255, 252, 247, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.04) 0%, rgba(255, 252, 247, 0.9) 100%);
   border: 1px solid #e8e2d9;
 }
 
 :host-context(.light-theme) .hero-about .visual-card:hover {
-  border-color: #e07850;
-  box-shadow: 0 15px 40px rgba(224, 120, 80, 0.12);
+  border-color: #1e40af;
+  box-shadow: 0 15px 40px rgba(30, 64, 175, 0.12);
 }
 
 :host-context(.light-theme) .hero-about .visual-card::before {
-  background: linear-gradient(90deg, transparent, #e07850, transparent);
+  background: linear-gradient(90deg, transparent, #1e40af, transparent);
 }
 
 :host-context(.light-theme) .hero-about .card-icon {
-  color: #e07850;
-  filter: drop-shadow(0 4px 12px rgba(224, 120, 80, 0.25));
+  color: #1e40af;
+  filter: drop-shadow(0 4px 12px rgba(30, 64, 175, 0.25));
 }
 
 :host-context(.light-theme) .hero-about .visual-card h3 {
@@ -696,7 +697,7 @@
 }
 
 :host-context(.light-theme) .hero-logo {
-  filter: drop-shadow(0 0 40px rgba(224, 120, 80, 0.2));
+  filter: drop-shadow(0 0 40px rgba(30, 64, 175, 0.2));
 }
 
 :host-context(.light-theme) .mouse {

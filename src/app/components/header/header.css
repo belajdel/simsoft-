@@ -313,7 +313,7 @@
 
 :host-context(.light-theme) .header.scrolled {
   background: rgba(250, 247, 242, 0.97);
-  border-bottom-color: rgba(224, 120, 80, 0.15);
+  border-bottom-color: rgba(30, 64, 175, 0.15);
   box-shadow: 0 4px 30px rgba(45, 42, 38, 0.08);
 }
 
@@ -322,23 +322,23 @@
 }
 
 :host-context(.light-theme) .nav-link:hover {
-  color: #e07850;
-  background: rgba(224, 120, 80, 0.08);
+  color: #1e40af;
+  background: rgba(30, 64, 175, 0.08);
 }
 
 :host-context(.light-theme) .nav-link::after {
-  background: #e07850;
+  background: #1e40af;
 }
 
 :host-context(.light-theme) .nav-cta {
-  background: linear-gradient(135deg, #e07850 0%, #f09070 100%);
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
   color: #ffffff !important;
-  box-shadow: 0 4px 16px rgba(224, 120, 80, 0.3);
+  box-shadow: 0 4px 16px rgba(30, 64, 175, 0.3);
 }
 
 :host-context(.light-theme) .nav-cta:hover {
-  background: linear-gradient(135deg, #c86040 0%, #e07850 100%);
-  box-shadow: 0 6px 24px rgba(224, 120, 80, 0.4);
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  box-shadow: 0 6px 24px rgba(30, 64, 175, 0.4);
 }
 
 :host-context(.light-theme) .menu-toggle {
@@ -347,8 +347,8 @@
 }
 
 :host-context(.light-theme) .menu-toggle:hover {
-  background: rgba(224, 120, 80, 0.08);
-  border-color: #e07850;
+  background: rgba(30, 64, 175, 0.08);
+  border-color: #1e40af;
 }
 
 :host-context(.light-theme) .menu-icon span {

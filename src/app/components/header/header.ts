@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ThemeSwitcher } from '../theme-switcher/theme-switcher';
 import { LanguageSwitcher } from '../language-switcher/language-switcher';
 import { LanguageService } from '../../services/language.service';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,7 @@ import { LanguageService } from '../../services/language.service';
 })
 export class Header {
   private languageService = inject(LanguageService);
+  private themeService = inject(ThemeService);
 
   isScrolled = signal(false);
   isMenuOpen = signal(false);
@@ -26,6 +28,13 @@ export class Header {
   navReferences = computed(() => this.languageService.translate('nav_references'));
   navContact = computed(() => this.languageService.translate('nav_contact'));
   navBlog = computed(() => this.languageService.translate('nav_blog'));
+
+  // Logo based on theme
+  logoPath = computed(() => {
+    return this.themeService.theme() === 'light' 
+      ? '/Logo_Black.png' 
+      : '/Logo_white.png';
+  });
 
   constructor(private router: Router) { }
 

@@ -1,6 +1,7 @@
 import { Component, inject, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../services/language.service';
+import { ThemeService } from '../../services/theme.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { RouterLink } from "@angular/router";
 
@@ -16,7 +17,15 @@ aboutClients() {
 throw new Error('Method not implemented.');
 }
   private languageService = inject(LanguageService);
+  private themeService = inject(ThemeService);
   constructor(private sanitizer: DomSanitizer) { }
+
+  // Logo based on theme
+  heroLogoPath = computed(() => {
+    return this.themeService.theme() === 'light' 
+      ? '/Logo_Full_Black.png' 
+      : '/Logo.png';
+  });
 
   // About section translations
   aboutTitle = computed(() => this.languageService.translate('about_title'));

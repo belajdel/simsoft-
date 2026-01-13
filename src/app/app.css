@@ -115,17 +115,17 @@ app-footer {
 
 :host-context(.light-theme)::before {
   background:
-    radial-gradient(ellipse at 25% 30%, rgba(224, 120, 80, 0.08) 0%, transparent 55%),
-    radial-gradient(ellipse at 75% 70%, rgba(212, 165, 116, 0.1) 0%, transparent 55%),
-    radial-gradient(ellipse at 50% 50%, rgba(139, 154, 109, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse at 25% 30%, rgba(30, 64, 175, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 70%, rgba(37, 99, 235, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 50%, rgba(30, 41, 59, 0.05) 0%, transparent 60%),
     linear-gradient(135deg, #faf7f2 0%, #f5f0e8 50%, #fffcf7 100%);
   animation: lightBackgroundShift 25s ease-in-out infinite;
 }
 
 :host-context(.light-theme)::after {
   background-image:
-    linear-gradient(rgba(224, 120, 80, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(224, 120, 80, 0.02) 1px, transparent 1px);
+    linear-gradient(rgba(30, 64, 175, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 64, 175, 0.02) 1px, transparent 1px);
   background-size: 60px 60px;
   opacity: 0.5;
 }
