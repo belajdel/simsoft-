@@ -1,6 +1,7 @@
 .products {
   position: relative;
-  padding: var(--spacing-lg) var(--spacing-md);
+  /* Slightly reduced vertical padding so the section is more compact */
+  padding: calc(var(--spacing-md) * 1.25) var(--spacing-md);
   background: transparent;
   overflow: hidden;
 }
@@ -58,7 +59,8 @@
 
 .product-card {
   position: relative;
-  padding: var(--spacing-lg);
+  /* Reduce inner padding so each card takes less visual space */
+  padding: var(--spacing-md);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
   border: 1px solid var(--border-gray);
   border-radius: 16px;
@@ -262,7 +264,7 @@
 /* Enhanced Product Card */
 .product-card {
   position: relative;
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   overflow: hidden;
   min-height: 450px;
