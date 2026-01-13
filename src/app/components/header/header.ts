@@ -3,13 +3,12 @@ import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ThemeSwitcher } from '../theme-switcher/theme-switcher';
 import { LanguageSwitcher } from '../language-switcher/language-switcher';
-import { SearchComponent } from '../search/search';
 import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterLink, ThemeSwitcher, LanguageSwitcher, SearchComponent],
+  imports: [CommonModule, RouterLink, ThemeSwitcher, LanguageSwitcher],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
