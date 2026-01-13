@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, HostListener, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface Partner {
@@ -15,13 +15,13 @@ interface Partner {
 })
 export class Partners {
   currentIndex = signal(0);
-  itemsPerView = 4; // Show 4 items at once on desktop, adjusted by CSS for mobile
-
+  itemsPerView = signal(4); // Default to 4
+  
   partners: Partner[] = [
     { name: 'AF-Beton', logo: '/References/AF-Beton.png' },
     { name: 'AF-TR', logo: '/References/AF-TR.png' },
     { name: 'Assenceur Zouali', logo: '/References/assenceur-zouali.png' },
-    { name: 'Borni Transport', logo: '/References/borni-transport-3.png' },
+    { name: 'Borni Transport', logo: '/References/borni-transport.png' },
     { name: 'CCMM', logo: '/References/CCMM.png' },
     { name: 'CNP', logo: '/References/cnp.png' },
     { name: 'Falcon Inter', logo: '/References/falcon-inter.png' },
@@ -39,45 +39,58 @@ export class Partners {
     { name: 'Watts', logo: '/References/watts-1.png' }
   ];
 
-  get visiblePartners(): Partner[] {
-    const start = this.currentIndex();
-    return this.partners.slice(start, start + this.itemsPerView);
+  // Computed property for transform value (optional, can use inline template)
+  transformValue = computed(() => {
+    const percentage = -this.currentIndex() * (100 / this.itemsPerView());
+    return `translateX(${percentage}%)`;
+  });
+
+  // Computed properties for button states
+  canGoPrevious = computed(() => this.currentIndex() > 0);
+  
+  canGoNext = computed(() => {
+    const maxIndex = Math.max(0, this.partners.length - this.itemsPerView());
+    return this.currentIndex() < maxIndex;
+  });
+
+  constructor() {
+    this.updateItemsPerView();
   }
 
-  get canGoPrevious(): boolean {
-    return this.currentIndex() > 0;
+  // Listen to window resize events to update the number of items per view
+  @HostListener('window:resize')
+  onResize() {
+    this.updateItemsPerView();
+    // Reset index if it becomes invalid after resize
+    const maxIndex = Math.max(0, this.partners.length - this.itemsPerView());
+    if (this.currentIndex() > maxIndex) {
+      this.currentIndex.set(maxIndex);
+    }
   }
 
-  get canGoNext(): boolean {
-    return this.currentIndex() + this.itemsPerView < this.partners.length;
-  }
-
-  get totalPages(): number {
-    return Math.ceil(this.partners.length / this.itemsPerView);
-  }
-
-  get currentPage(): number {
-    return Math.floor(this.currentIndex() / this.itemsPerView) + 1;
+  private updateItemsPerView() {
+    const width = window.innerWidth;
+    if (width <= 480) {
+      this.itemsPerView.set(1);
+    } else if (width <= 768) {
+      this.itemsPerView.set(2);
+    } else if (width <= 1024) {
+      this.itemsPerView.set(3);
+    } else {
+      this.itemsPerView.set(4);
+    }
   }
 
   previous() {
-    if (this.canGoPrevious) {
-      this.currentIndex.update(index => Math.max(0, index - this.itemsPerView));
+    if (this.canGoPrevious()) {
+      this.currentIndex.update(index => Math.max(0, index - this.itemsPerView()));
     }
   }
 
   next() {
-    if (this.canGoNext) {
-      this.currentIndex.update(index =>
-        Math.min(this.partners.length - this.itemsPerView, index + this.itemsPerView)
-      );
-    }
-  }
-
-  goToPage(page: number) {
-    const index = (page - 1) * this.itemsPerView;
-    if (index >= 0 && index < this.partners.length) {
-      this.currentIndex.set(index);
+    if (this.canGoNext()) {
+      const maxIndex = Math.max(0, this.partners.length - this.itemsPerView());
+      this.currentIndex.update(index => Math.min(maxIndex, index + this.itemsPerView()));
     }
   }
 }
