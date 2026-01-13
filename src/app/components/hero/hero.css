@@ -212,15 +212,16 @@
 .hero-stats {
   display: flex;
   gap: var(--spacing-xl);
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: unset;
+  text-align: center;
   margin-top: var(--spacing-lg);
-  padding-top: var(--spacing-lg);
   border-top: 1px solid var(--border-gray);
+
 }
 
 .stat-item {
   text-align: center;
+  ;
 }
 
 .stat-number {
@@ -326,6 +327,7 @@
   border-radius: 12px;
   text-align: center;
   transition: all var(--transition-base);
+  margin-left: 45px;
 }
 
 .hero-about .stat-card:hover {

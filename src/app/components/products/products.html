@@ -9,15 +9,7 @@
     </div>
 
     <!-- Category Filter -->
-    <div class="category-filter animate-fade-in">
-      <button class="filter-btn active" (click)="setCategory('all')">{{ productsAll() }}</button>
-      <button class="filter-btn" (click)="setCategory('ERP')">{{ productsERP() }}</button>
-      <button class="filter-btn" (click)="setCategory('GMAO')">{{ productsGMAO() }}</button>
-      <button class="filter-btn" (click)="setCategory('Sécurité')">{{ productsSecurity() }}</button>
-      <button class="filter-btn" (click)="setCategory('Cloud')">{{ productsCloud() }}</button>
-      <button class="filter-btn" (click)="setCategory('Développement')">{{ productsDevelopment() }}</button>
-      <button class="filter-btn" (click)="setCategory('Analytics')">{{ productsAnalytics() }}</button>
-    </div>
+  
 
     <div class="products-grid">
       @for (product of displayedProducts(); track product.id) {
@@ -28,7 +20,6 @@
             <div class="product-icon animate-bounce-in" [innerHTML]="getIconSvg(product.iconSvg)"></div>
             <div class="product-glow animate-glow"></div>
           </div>
-          <div class="product-category text-gradient-animated">{{ product.category }}</div>
         </div>
 
           <div class="product-content">

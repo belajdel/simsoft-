@@ -59,7 +59,7 @@ export class ProductService {
     {
       id: 'firstparc',
       iconSvg: 'car',
-      title: 'FirstParc GMAO',
+      title: 'FirstParc ',
       description: 'Gestion de Maintenance Assistée par Ordinateur pour optimiser votre parc automobile.',
       longDescription: 'FirstParc est la solution GMAO (Gestion de Maintenance Assistée par Ordinateur) de référence pour la gestion complète de votre parc véhicule. De l\'ordonnancement des tâches au suivi des interventions, en passant par la maintenance préventive et la gestion des coûts, FirstParc optimise la disponibilité de votre flotte et réduit drastiquement vos coûts d\'exploitation. Notre approche prédictive basée sur l\'IA anticipe les pannes et maximise la productivité.',
       features: ['Ordonnancement intelligent', 'Maintenance prédictive', 'Gestion des coûts détaillée', 'Suivi temps réel', 'Historique complet', 'Rapports automatisés', 'Mobile app', 'Intégration GPS'],

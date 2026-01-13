@@ -17,8 +17,8 @@ export class LanguageSwitcher {
   isOpen = false;
 
   languages: { code: Language; name: string;  }[] = [
-    { code: 'fr', name: 'Français' },
-    { code: 'en', name: 'Anglais' }
+    { code: 'fr', name: 'Fr' },
+    { code: 'en', name: 'En' }
   ];  
 
   setLanguage(language: Language) {
