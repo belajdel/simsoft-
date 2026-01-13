@@ -18,7 +18,7 @@
   --text-gray-light: #B0B0B0;
   --text-gray-dark: #808080;
   --border-gray: #1a1a24;
-  --border-gray-light: #2a2a35;
+  --border-gray-light: #f3f3f3;
   --glass-bg: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
 
@@ -282,7 +282,7 @@ h3 {
 p {
   font-size: clamp(1rem, 1.5vw, 1.125rem);
   line-height: 1.7;
-  color: black
+  color: rgb(231, 223, 223)
 }
 
 /* Links */
