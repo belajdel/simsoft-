@@ -3,6 +3,8 @@
   padding: 5rem var(--spacing-md);
   background: transparent;
   overflow: hidden;
+  --carousel-gap: 2rem;
+  --items-visible: 4;
 }
 
 .partners::before {
@@ -73,17 +75,22 @@
   flex: 1;
   overflow: hidden;
   position: relative;
+  /* Add padding to ensure last item is visible */
+  padding: 0 calc(var(--carousel-gap) / 2);
+  margin: 0 calc(-1 * var(--carousel-gap) / 2);
 }
 
 .carousel-track {
   display: flex;
-  gap: 2rem;
+  gap: var(--carousel-gap);
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
+  /* Prevent last item cutoff */
+  padding-right: calc(var(--carousel-gap) / 2);
 }
 
 .partner-card {
-  flex: 0 0 calc((100% - 6rem) / 4);
+  flex: 0 0 calc((100% - (var(--items-visible) - 1) * var(--carousel-gap)) / var(--items-visible));
   min-width: 0;
   height: 240px;
   perspective: 1000px;
@@ -194,7 +201,6 @@
     opacity: 0;
     transform: translateY(30px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -253,18 +259,20 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .partner-card {
-    flex: 0 0 calc((100% - 4rem) / 3);
-    height: 220px;
+  .partners {
+    --items-visible: 3;
+    --carousel-gap: 1.5rem;
   }
-
-  .carousel-track {
-    gap: 1.5rem;
+  
+  .partner-card {
+    height: 220px;
   }
 }
 
 @media (max-width: 768px) {
   .partners {
+    --items-visible: 2;
+    --carousel-gap: 1rem;
     padding: 4rem var(--spacing-sm);
   }
 
@@ -277,16 +285,11 @@
   }
 
   .partner-card {
-    flex: 0 0 calc((100% - 2rem) / 2);
     height: 200px;
   }
 
   .partner-card-inner {
     padding: 1.5rem;
-  }
-
-  .carousel-track {
-    gap: 1rem;
   }
 
   .carousel-button {
@@ -302,7 +305,6 @@
 
 @media (max-width: 640px) {
   .partner-card {
-    flex: 0 0 calc((100% - 1rem) / 2);
     height: 180px;
   }
 
@@ -322,8 +324,18 @@
 }
 
 @media (max-width: 480px) {
+  .partners {
+    --items-visible: 1;
+    --carousel-gap: 0.75rem;
+  }
+
   .partner-card {
-    flex: 0 0 100%;
     height: 160px;
+  }
+  
+  /* For single item view, adjust container padding */
+  .carousel-container {
+    padding: 0;
+    margin: 0;
   }
 }
