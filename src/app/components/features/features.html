@@ -1,0 +1,31 @@
+<section class="features" id="services">
+  <div class="features-container">
+    <div class="section-header">
+      <span class="section-label">Nos Services</span>
+      <h2 class="section-title">Solutions Technologiques de Pointe</h2>
+      <p class="section-description">
+        Des services innovants conçus pour répondre aux défis modernes de votre entreprise
+      </p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features; let i = index">
+        <div class="feature-icon-wrapper">
+          <div class="feature-icon" [innerHTML]="getIconSvg(feature.iconSvg)"></div>
+          <div class="feature-glow"></div>
+        </div>
+        <h3 class="feature-title">{{ feature.title }}</h3>
+        <p class="feature-description">{{ feature.description }}</p>
+        <ul class="feature-list">
+          <li *ngFor="let item of feature.items">{{ item }}</li>
+        </ul>
+        <a href="#contact" class="feature-link">
+          En savoir plus
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

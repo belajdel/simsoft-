@@ -1,0 +1,39 @@
+<section class="partners" id="partenaires">
+  <div class="partners-container">
+    <div class="section-header">
+      <span class="section-label">Nos Partenaires</span>
+      <h2 class="section-title">Partenaires de Confiance</h2>
+      <p class="section-description">
+        Nos partenaires stratégiques qui nous accompagnent dans l'excellence
+      </p>
+    </div>
+
+    <div class="partners-grid" *ngIf="partners.length > 0">
+      <div 
+        class="partner-card" 
+        *ngFor="let partner of partners; let i = index"
+        [style.animation-delay]="(i * 0.1) + 's'"
+      >
+        <div class="partner-card-inner">
+          <div class="partner-logo-wrapper">
+            <div class="logo-background"></div>
+            <img 
+              [src]="partner.logo" 
+              [alt]="partner.name"
+              class="partner-logo"
+              [class.logo-divalto]="partner.name === 'Divalto'"
+              [class.logo-wavesoft]="partner.name === 'WaveSoft'"
+              loading="lazy"
+              (error)="$event.target.src='/Partenaires/logo-1.png'"
+            />
+          </div>
+          <div class="partner-hover-effect"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="empty-state" *ngIf="partners.length === 0">
+      <p>Les logos de nos partenaires seront affichés ici</p>
+    </div>
+  </div>
+</section>

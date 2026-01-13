@@ -1,0 +1,149 @@
+<section class="contact" id="contact">
+  <div class="contact-container">
+    <div class="section-header">
+      <span class="section-label">Contact</span>
+      <h2 class="section-title">Contactez-Nous</h2>
+      <p class="section-description">
+        Notre équipe est à votre disposition pour répondre à toutes vos questions et vous accompagner dans vos projets
+        digitaux.
+      </p>
+    </div>
+
+    <div class="contact-content">
+      <!-- Contact Information & Map -->
+      <div class="contact-info-wrapper">
+        <div class="contact-cards">
+          <div class="info-card">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3 8L10.89 13.26C11.2187 13.4793 11.6049 13.5963 12 13.5963C12.3951 13.5963 12.7813 13.4793 13.11 13.26L21 8M5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5H5C4.46957 5 3.96086 5.21071 3.58579 5.58579C3.21071 5.96086 3 6.46957 3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div>
+              <h3>Email</h3>
+              <a href="mailto:commercial@simsoft.com.tn">commercial&#64;simsoft.com.tn</a>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3 5C3 3.89543 3.89543 3 5 3H8.27924C8.70967 3 9.09181 3.27543 9.22792 3.68377L10.7257 8.17721C10.8831 8.64932 10.6694 9.16531 10.2243 9.38787L7.96701 10.5165C9.06925 12.9612 11.0388 14.9308 13.4835 16.033L14.6121 13.7757C14.8347 13.3306 15.3507 13.1169 15.8228 13.2743L20.3162 14.7721C20.7246 14.9082 21 15.2903 21 15.7208V19C21 20.1046 20.1046 21 19 21H18C9.71573 21 3 14.2843 3 6V5Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div>
+              <h3>Téléphone</h3>
+              <a href="tel:+21673213688">+216 73 21 36 88</a>
+              <a href="tel:+21650520805">+216 50 52 08 05</a>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 2C8.13401 2 5 5.13401 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13401 15.866 2 12 2Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M12 11C13.1046 11 14 10.1046 14 9C14 7.89543 13.1046 7 12 7C10.8954 7 10 7.89543 10 9C10 10.1046 10.8954 11 12 11Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div>
+              <h3>Adresse</h3>
+              <p>5 Avenue Léopold Senghor<br>Espace Ayechi<br>4000 Sousse – Tunisie</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3234.829023533866!2d10.636991315112165!3d35.82862098016024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x130275757948293d%3A0x6b4f746197262c55!2s5%20Av.%20Leopold%20Sedar%20Senghor%2C%20Sousse!5e0!3m2!1sen!2stn!4v1645000000000!5m2!1sen!2stn"
+            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-wrapper">
+        <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nom complet *</label>
+              <input type="text" id="name" [value]="formData().name"
+                (input)="updateField('name', $any($event.target).value)" required placeholder="Votre nom" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" [value]="formData().email"
+                (input)="updateField('email', $any($event.target).value)" required placeholder="votre@email.com" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Téléphone</label>
+              <input type="tel" id="phone" [value]="formData().phone"
+                (input)="updateField('phone', $any($event.target).value)" placeholder="+216 XX XXX XXX" />
+            </div>
+
+            <div class="form-group">
+              <label for="company">Entreprise</label>
+              <input type="text" id="company" [value]="formData().company"
+                (input)="updateField('company', $any($event.target).value)" placeholder="Nom de votre entreprise" />
+            </div>
+          </div>
+
+          <div class="form-group form-group-full">
+            <label for="subject">Sujet *</label>
+            <input type="text" id="subject" [value]="formData().subject"
+              (input)="updateField('subject', $any($event.target).value)" required
+              placeholder="Sujet de votre message" />
+          </div>
+
+          <div class="form-group form-group-full">
+            <label for="message">Message *</label>
+            <textarea id="message" [value]="formData().message"
+              (input)="updateField('message', $any($event.target).value)" required rows="6"
+              placeholder="Décrivez votre projet ou vos besoins..."></textarea>
+          </div>
+
+          @if (submitSuccess()) {
+          <div class="success-message">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.6667 5L7.50002 14.1667L3.33335 10" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Votre message a été envoyé avec succès !
+          </div>
+          }
+
+          @if (submitError()) {
+          <div class="error-message">
+            {{ submitError() }}
+          </div>
+          }
+
+          <button type="submit" class="submit-button" [disabled]="isSubmitting()">
+            @if (isSubmitting()) {
+            <span class="spinner"></span>
+            Envoi en cours...
+            } @else {
+            Envoyer le message
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            }
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <app-faq></app-faq>
+</section>

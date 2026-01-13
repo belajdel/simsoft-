@@ -1,0 +1,33 @@
+<header class="header" [class.scrolled]="isScrolled()">
+  <div class="header-container">
+    <div class="logo-wrapper">
+      <a href="#accueil" class="logo-link" (click)="scrollToSection($event, '#accueil')">
+        <img src="/Logo.png" alt="Simsoft Technologies" class="logo" />
+      </a>
+    </div>
+
+    <nav class="nav" [class.active]="isMenuOpen()">
+      <a href="#accueil" class="nav-link" (click)="scrollToSection($event, '#accueil')">{{ navHome() }}</a>
+      <a href="#produits" class="nav-link" (click)="scrollToSection($event, '#produits')">{{ navProducts() }}</a>
+      <a href="#references" class="nav-link" (click)="scrollToSection($event, '#references')">{{ navReferences() }}</a>
+      <a href="#partenaires" class="nav-link" (click)="scrollToSection($event, '#partenaires')">{{ navPartners() }}</a>
+      <a routerLink="/blog" class="nav-link" (click)="closeMenu()">{{ navBlog() }}</a>
+      <a routerLink="/contact" class="nav-link contact-btn" (click)="closeMenu()">{{ navContact() }}</a>
+    </nav>
+
+    <div class="header-controls">
+      <app-search></app-search>
+      <app-language-switcher></app-language-switcher>
+      <app-theme-switcher></app-theme-switcher>
+
+      <button class="menu-toggle" (click)="toggleMenu()"
+        [attr.aria-label]="isMenuOpen() ? 'Fermer le menu' : 'Ouvrir le menu'">
+        <span class="menu-icon" [class.active]="isMenuOpen()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+    </div>
+  </div>
+</header>

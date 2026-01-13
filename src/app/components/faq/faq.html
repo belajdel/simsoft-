@@ -1,0 +1,22 @@
+<section class="faq-section">
+    <div class="faq-container">
+        <div class="section-header">
+            <h2 class="section-title">Questions Fréquentes</h2>
+            <p>Retrouvez ici les réponses aux questions les plus courantes.</p>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item glass-card" *ngFor="let item of faqs(); let i = index" [class.open]="item.isOpen">
+                <button class="faq-question" (click)="toggle(i)">
+                    <span>{{ item.question }}</span>
+                    <span class="icon">{{ item.isOpen ? '−' : '+' }}</span>
+                </button>
+                <div class="faq-answer" [style.max-height]="item.isOpen ? '200px' : '0'">
+                    <div class="answer-content">
+                        {{ item.answer }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,50 @@
+<div class="chatbot-container" [class.open]="isOpen()">
+    <!-- Toggle Button -->
+    <button class="chat-toggle glass-card" (click)="toggleChat()">
+        @if (!isOpen()) {
+        <span>💬</span>
+        } @else {
+        <span>✕</span>
+        }
+    </button>
+
+    <!-- Chat Window -->
+    @if (isOpen()) {
+    <div class="chat-window glass-panel">
+        <div class="chat-header">
+            <h3>Assistant SimSoft</h3>
+            <span class="status-dot"></span>
+        </div>
+
+        <div class="chat-messages" #messagesContainer>
+            @for (msg of messages(); track msg.timestamp.getTime()) {
+            <div class="message animate-fade-in" [class.user]="msg.isUser" [class.bot]="!msg.isUser">
+                <div class="message-content">
+                    {{ msg.text }}
+                </div>
+                <div class="message-time">
+                    {{ msg.timestamp | date:'shortTime' }}
+                </div>
+            </div>
+            }
+        </div>
+
+        <div class="quick-actions">
+            <button class="quick-btn" (click)="sendQuickMessage('Qu\'est-ce que Divalto ?')">Divalto</button>
+            <button class="quick-btn" (click)="sendQuickMessage('Prix et devis')">Devis</button>
+            <button class="quick-btn" (click)="sendQuickMessage('Contact')">Contact</button>
+        </div>
+
+        <div class="chat-input">
+            <input type="text" [(ngModel)]="userMessage" (keyup.enter)="sendMessage()"
+                placeholder="Écrivez votre message..." [disabled]="false">
+            <button (click)="sendMessage()" [disabled]="!userMessage.trim()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    }
+</div>

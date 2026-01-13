@@ -1,0 +1,86 @@
+<div class="feedback-widget" [class.visible]="isVisible()" *ngIf="!isSubmitted()">
+  <div class="feedback-header">
+    <h3 class="feedback-title">
+      {{ languageService.translate('feedback_title') || 'How satisfied are you with our website?' }}
+    </h3>
+    <button class="feedback-close" (click)="hideWidget()" aria-label="Close feedback">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="feedback-content">
+    <div class="rating-section">
+      <p class="rating-label">
+        {{ languageService.translate('feedback_rate_experience') || 'Rate your experience:' }}
+      </p>
+
+      <div class="rating-stars">
+        <button
+          class="star-btn"
+          *ngFor="let star of stars"
+          [class.selected]="rating() >= star"
+          (click)="setRating(star)"
+          (mouseenter)="hoveredRating = star"
+          (mouseleave)="hoveredRating = 0"
+          [attr.aria-label]="'Rate ' + star + ' stars'"
+          type="button">
+          <span class="star-emoji">{{ getStarEmoji(rating() || hoveredRating, star) }}</span>
+        </button>
+      </div>
+
+      <p class="rating-text" *ngIf="rating() > 0">
+        {{ getRatingText() }}
+      </p>
+    </div>
+
+    <div class="feedback-section" *ngIf="rating() > 0">
+      <label for="feedback-text" class="feedback-label">
+        {{ languageService.translate('feedback_additional_comments') || 'Additional comments (optional):' }}
+      </label>
+      <textarea
+        id="feedback-text"
+        class="feedback-textarea"
+        [(ngModel)]="feedback"
+        [placeholder]="languageService.translate('feedback_placeholder') || 'Tell us how we can improve...'"
+        rows="3"
+        maxlength="500">
+      </textarea>
+      <div class="character-count">
+        {{ feedback().length }}/500
+      </div>
+    </div>
+
+    <div class="feedback-actions">
+      <button
+        class="feedback-submit"
+        [disabled]="rating() === 0 || isSubmitting()"
+        (click)="submitFeedback()"
+        type="button">
+        <span *ngIf="!isSubmitting()">
+          {{ languageService.translate('feedback_submit') || 'Submit Feedback' }}
+        </span>
+        <span *ngIf="isSubmitting()" class="loading">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="spinner">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" stroke-dasharray="31.416" stroke-dashoffset="31.416" class="spinner-circle"/>
+          </svg>
+          {{ languageService.translate('feedback_submitting') || 'Submitting...' }}
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Success Message -->
+<div class="feedback-success" [class.visible]="isSubmitted()" *ngIf="isSubmitted()">
+  <div class="success-content">
+    <div class="success-icon">🎉</div>
+    <h3 class="success-title">
+      {{ languageService.translate('feedback_thank_you') || 'Thank you for your feedback!' }}
+    </h3>
+    <p class="success-message">
+      {{ languageService.translate('feedback_appreciated') || 'Your feedback helps us improve our services.' }}
+    </p>
+  </div>
+</div>

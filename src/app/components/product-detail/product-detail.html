@@ -1,0 +1,105 @@
+@if (product(); as p) {
+<app-breadcrumb [customItems]="[{ label: 'Produits', url: '/produits' }, { label: p.title, isActive: true }]"></app-breadcrumb>
+
+<div class="product-detail-container animate-fade-in-up">
+  <div class="product-hero glass-panel">
+    <div class="hero-content">
+      <div class="icon-wrapper">
+        <div class="product-icon" [innerHTML]="getIconSvg(p.iconSvg)"></div>
+      </div>
+      <h1 class="product-title text-gradient">{{ p.title }}</h1>
+      <p class="product-short-desc">{{ p.description }}</p>
+    </div>
+  </div>
+
+  <div class="product-content">
+    <div class="content-row">
+      <!-- Image Gallery -->
+      <div class="content-section gallery-section glass-card">
+        @if (p.images && p.images.length > 0) {
+        <div class="image-gallery">
+          <div class="main-image-container">
+            <img [src]="selectedImage()" [alt]="p.title" class="main-image" />
+            <div class="image-overlay">
+              <button class="gallery-btn prev-btn" (click)="prevImage()" [disabled]="selectedImageIndex() === 0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <button class="gallery-btn next-btn" (click)="nextImage()" [disabled]="selectedImageIndex() === (p.images.length - 1)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="thumbnail-container">
+            @for (image of p.images; track $index) {
+            <img [src]="image" [alt]="p.title + ' ' + ($index + 1)" 
+                 class="thumbnail" 
+                 [class.active]="selectedImageIndex() === $index"
+                 (click)="selectImage($index)" />
+            }
+          </div>
+        </div>
+        } @else {
+        <div class="gallery-placeholder">
+          <div class="gallery-icon-360">↻</div>
+          <p>Vue 360° Interactive</p>
+        </div>
+        }
+      </div>
+
+      <div class="content-section description-section">
+        <h2>À propos de {{ p.title }}</h2>
+        <p class="long-description">{{ p.longDescription }}</p>
+      </div>
+    </div>
+
+    <div class="content-section features-section">
+      <h3>Fonctionnalités Clés</h3>
+      <div class="features-grid">
+        @for (feature of p.features; track feature) {
+        <div class="feature-card glass-card">
+          <span class="check-icon">✓</span>
+          <span class="feature-text">{{ feature }}</span>
+        </div>
+        }
+      </div>
+    </div>
+
+    <!-- Related Products -->
+    @if (relatedProducts().length > 0) {
+    <div class="content-section related-section">
+      <h3>Produits Similaires</h3>
+      <div class="features-grid related-grid">
+        @for (related of relatedProducts(); track related.id) {
+        <a [routerLink]="['/produits', related.id]" class="feature-card glass-card related-card">
+          <span class="related-icon" [innerHTML]="getIconSvg(related.iconSvg)"></span>
+          <span class="feature-text">{{ related.title }}</span>
+        </a>
+        }
+      </div>
+    </div>
+    }
+
+    <div class="actions">
+      <a routerLink="/produits" class="back-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+        Retour aux produits
+      </a>
+      <a routerLink="/contact" class="contact-btn">Demander une démo</a>
+    </div>
+  </div>
+</div>
+} @else {
+<div class="not-found">
+  <h2>Produit introuvable</h2>
+  <p>Le produit que vous recherchez n'existe pas ou a été déplacé.</p>
+  <a routerLink="/produits" class="back-btn">Retour aux produits</a>
+</div>
+}

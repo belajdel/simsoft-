@@ -1,0 +1,26 @@
+<section class="section-padding" style="margin-top: 5rem;">
+    <div class="container">
+        <div class="header-content animate-fade-in-up">
+            <h1 class="text-gradient">Actualités & Insights</h1>
+            <p class="subtitle">Découvrez les dernières tendances technologiques et nos expertises.</p>
+        </div>
+
+        <div class="blog-grid">
+            <article *ngFor="let post of posts()" class="blog-card glass-card animate-slide-in-right">
+                <div class="card-image" [style.background-image]="'url(' + post.imageUrl + ')'"></div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="date">{{ post.date | date:'longDate' }}</span>
+                        <span class="author">par {{ post.author }}</span>
+                    </div>
+                    <h2>{{ post.title }}</h2>
+                    <p>{{ post.excerpt }}</p>
+                    <div class="tags">
+                        <span *ngFor="let tag of post.tags" class="tag">#{{ tag }}</span>
+                    </div>
+                    <a [routerLink]="['/blog', post.id]" class="read-more">Lire la suite →</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>

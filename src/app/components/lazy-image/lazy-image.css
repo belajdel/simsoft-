@@ -1,0 +1,119 @@
+.lazy-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--primary-black-light);
+}
+
+.lazy-image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lazy-image-container img.loaded {
+  opacity: 1;
+}
+
+/* Placeholder/Shimmer effect */
+.image-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--primary-black-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shimmer {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--primary-black-light) 25%,
+    rgba(255, 255, 255, 0.1) 50%,
+    var(--primary-black-light) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Error state */
+.image-error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-black-light);
+  color: var(--text-gray-light);
+  text-align: center;
+  padding: 1rem;
+}
+
+.image-error svg {
+  color: var(--text-gray);
+  margin-bottom: 0.5rem;
+}
+
+.image-error p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+/* Light theme adjustments */
+.light-theme .lazy-image-container {
+  background: rgba(0, 102, 204, 0.05);
+}
+
+.light-theme .image-placeholder {
+  background: rgba(0, 102, 204, 0.05);
+}
+
+.light-theme .shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 102, 204, 0.05) 25%,
+    rgba(0, 102, 204, 0.1) 50%,
+    rgba(0, 102, 204, 0.05) 75%
+  );
+}
+
+.light-theme .image-error {
+  background: rgba(0, 102, 204, 0.05);
+  color: var(--text-gray);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .lazy-image-container {
+    border-radius: 6px;
+  }
+
+  .image-error {
+    padding: 0.75rem;
+  }
+
+  .image-error svg {
+    width: 32px;
+    height: 32px;
+  }
+}

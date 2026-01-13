@@ -1,0 +1,73 @@
+<section class="section-padding" style="margin-top: 5rem;">
+    @if (post(); as p) {
+    <div class="container animate-fade-in-up">
+        <a routerLink="/blog" class="back-link">← Retour aux articles</a>
+
+        <article class="post-content glass-panel">
+            <div class="post-header">
+                <div class="post-image" [style.background-image]="'url(' + p.imageUrl + ')'"></div>
+                <div class="post-meta-header">
+                    <span class="date">{{ p.date | date:'longDate' }}</span>
+                    <span class="separator">•</span>
+                    <span class="author">{{ p.author }}</span>
+                </div>
+                <h1>{{ p.title }}</h1>
+                <div class="tags">
+                    @for (tag of p.tags; track tag) {
+                    <span class="tag">#{{ tag }}</span>
+                    }
+                </div>
+            </div>
+
+            <div class="post-body" [innerHTML]="p.content"></div>
+        </article>
+
+        <div class="comments-section glass-card">
+            <h3>Commentaires ({{ comments().length }})</h3>
+
+            <div class="comments-list">
+                @if (comments().length > 0) {
+                    @for (comment of comments(); track comment.id) {
+                    <div class="comment">
+                        <div class="comment-avatar">{{ comment.user.charAt(0) }}</div>
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="comment-user">{{ comment.user }}</span>
+                                <span class="comment-date">{{ comment.date | date:'short' }}</span>
+                            </div>
+                            <p>{{ comment.text }}</p>
+                        </div>
+                    </div>
+                    }
+                } @else {
+                <p class="no-comments">Soyez le premier à commenter cet article !</p>
+                }
+            </div>
+
+            <div class="add-comment">
+                <h4>Laisser un commentaire</h4>
+                <div class="input-group">
+                    <input type="text" placeholder="Votre nom" [value]="newCommentUser()" 
+                           (input)="newCommentUser.set($any($event.target).value)">
+                </div>
+                <div class="input-group">
+                    <textarea placeholder="Votre message..." [value]="newCommentText()" 
+                              (input)="newCommentText.set($any($event.target).value)" rows="3"></textarea>
+                </div>
+                <button (click)="addComment()" [disabled]="!newCommentText().trim() || isSubmitting()">
+                    @if (isSubmitting()) {
+                    <span class="spinner"></span>
+                    Publication...
+                    } @else {
+                    Publier
+                    }
+                </button>
+            </div>
+        </div>
+    </div>
+    } @else {
+    <div class="container loading">
+        <p>Chargement de l'article...</p>
+    </div>
+    }
+</section>

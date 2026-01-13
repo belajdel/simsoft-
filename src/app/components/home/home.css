@@ -1,0 +1,4 @@
+/* Home page styles (kept minimal; component styles are defined in each section) */
+:host {
+  display: block;
+}

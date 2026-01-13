@@ -1,0 +1,87 @@
+<section class="hero" id="accueil">
+  <div class="hero-background">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
+
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-logo-wrapper animate-fade-in">
+        <img src="/Logo.png" alt="Simsoft Technologies" class="hero-logo" />
+      </div>
+
+      <h1 class="hero-title animate-float-up text-gradient-animated" style="animation-delay: 0.2s">
+        {{ heroTitle() }}
+      </h1>
+
+      <p class="hero-tagline animate-float-up" style="animation-delay: 0.4s">
+        <span class="accent-text text-gradient-animated">{{ heroTagline().split(' ')[0] }}</span> {{ heroTagline().substring(heroTagline().indexOf(' ') + 1) }}
+      </p>
+
+      <p class="hero-description animate-fade-in-up" style="animation-delay: 0.6s">
+        {{ heroDescription() }}
+      </p>
+
+      <div class="hero-cta animate-fade-in-up" style="animation-delay: 0.8s">
+        <a href="#produits" class="btn btn-primary">
+          <span>{{ heroDiscover() }}</span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+        <a routerLink="/contact" class="btn btn-secondary">
+          <span>{{ heroContact() }}</span>
+        </a>
+      </div>
+
+      <div class="hero-about animate-fade-in-up" style="animation-delay: 1s">
+        <div class="section-header">
+          <span class="section-label">{{ aboutTitle() }}</span>
+          <h2 class="section-title">{{ aboutSubtitle() }}</h2>
+        </div>
+
+        <div class="about-content">
+          <div class="about-text">
+            <div class="about-description">
+              <p>{{ aboutDescription1() }}</p>
+              <p>{{ aboutDescription2() }}</p>
+              <p>{{ aboutDescription3() }}</p>
+            </div>
+
+            <div class="about-stats">
+              <div class="stat-card animate-bounce-in hover-lift glass-enhanced" style="animation-delay: 1.4s">
+                <div class="stat-number text-gradient-animated">2</div>
+                <div class="stat-label">{{ aboutFiliales() }}</div>
+                <div class="floating-shapes">
+                  <div class="shape square" style="top: 15%; right: 15%;"></div>
+                </div>
+              </div>
+              <div class="stat-card animate-bounce-in hover-lift glass-enhanced" style="animation-delay: 1.6s">
+                <div class="stat-number text-gradient-animated">24+</div>
+                <div class="stat-label">{{ aboutExperience() }}</div>
+                <div class="floating-shapes">
+                  <div class="shape triangle" style="top: 25%; right: 25%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-visual">
+            <div class="visual-card">
+              <div class="card-icon" [innerHTML]="getIconSvg('building')"></div>
+              <h3>{{ aboutTechnologyTitle() }}</h3>
+              <p>{{ aboutTechnologyDesc() }}</p>
+            </div>
+            <div class="visual-card">
+              <div class="card-icon" [innerHTML]="getIconSvg('globe')"></div>
+              <h3>{{ aboutInternationalTitle() }}</h3>
+              <p>{{ aboutInternationalDesc() }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

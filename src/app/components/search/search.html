@@ -1,0 +1,83 @@
+<div class="search-container">
+  <div class="search-input-wrapper">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="search-icon">
+      <path d="M21 21l-4.35-4.35M19 11a8 8 0 1 1-16 0 8 8 0 0 1 16 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+    <input
+      #searchInput
+      type="text"
+      class="search-input"
+      [placeholder]="languageService.translate('search_placeholder') || 'Rechercher des produits, articles...'"
+      [value]="query()"
+      (input)="onInputChange($event.target.value)"
+      (focus)="onInputFocus()"
+      (keydown)="onKeyDown($event)"
+      autocomplete="off"
+      spellcheck="false">
+
+    <button
+      class="search-clear"
+      *ngIf="query()"
+      (click)="onInputChange('')"
+      aria-label="Clear search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Search Results Dropdown -->
+  <div class="search-dropdown" *ngIf="isOpen() && hasResults()">
+    <div class="search-results">
+      <div
+        class="search-result-item"
+        *ngFor="let result of searchResults(); let i = index"
+        [class.selected]="selectedIndex() === i"
+        (click)="navigateToResult(result)"
+        (mouseenter)="selectedIndex.set(i)">
+
+        <div class="result-icon">
+          {{ getResultIcon(result.type) }}
+        </div>
+
+        <div class="result-content">
+          <div class="result-title">{{ result.title }}</div>
+          <div class="result-description">{{ result.description }}</div>
+          <div class="result-meta">
+            <span class="result-type">{{ getResultTypeLabel(result.type) }}</span>
+            <span class="result-category" *ngIf="result.type === 'product'">• {{ result.category }}</span>
+          </div>
+        </div>
+
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="result-arrow">
+          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="search-footer" *ngIf="searchResults().length >= 8">
+      <span class="search-more">
+        {{ languageService.translate('search_show_more') || 'Voir plus de résultats...' }}
+      </span>
+    </div>
+  </div>
+
+  <!-- No Results State -->
+  <div class="search-dropdown" *ngIf="isOpen() && !hasResults() && query().trim()">
+    <div class="search-no-results">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" class="no-results-icon">
+        <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+        <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="13" y1="9" x2="9" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="9" y1="9" x2="13" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <p class="no-results-text">
+        {{ languageService.translate('search_no_results') || 'Aucun résultat trouvé pour' }} "{{ query() }}"
+      </p>
+      <p class="no-results-suggestion">
+        {{ languageService.translate('search_try_different') || 'Essayez des termes différents ou vérifiez l\'orthographe.' }}
+      </p>
+    </div>
+  </div>
+</div>

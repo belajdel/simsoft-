@@ -1,0 +1,27 @@
+<div class="language-switcher animate-fade-in">
+  <button
+    class="language-toggle"
+    (click)="isOpen = !isOpen"
+    [attr.aria-label]="'Changer de langue'"
+    type="button">
+    <span class="current-flag">{{ getCurrentLanguageName() }}</span>
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="dropdown-arrow" [class.rotated]="isOpen">
+      <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  @if (isOpen) {
+  <div class="language-dropdown animate-slide-in-bottom">
+    @for (language of languages; track language.code) {
+    <button
+      class="language-option"
+      [class.active]="language.code === currentLanguage()"
+      (click)="setLanguage(language.code); isOpen = false"
+      type="button">
+      <span class="flag">{{ language.name }}</span>
+      <span class="name">{{ language.name }}</span>
+    </button>
+    }
+  </div>
+  }
+</div>

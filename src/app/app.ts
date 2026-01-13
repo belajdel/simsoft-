@@ -1,0 +1,24 @@
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { Header } from './components/header/header';
+import { Footer } from './components/footer/footer';
+import { BackgroundEffects } from './components/background-effects/background-effects';
+import { Chatbot } from './components/chatbot/chatbot';
+import { FeedbackComponent } from './components/feedback/feedback';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [
+    RouterOutlet,
+    Header,
+    Footer,
+    BackgroundEffects,
+    Chatbot,
+    FeedbackComponent
+  ],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
+})
+export class App {
+}

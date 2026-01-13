@@ -1,0 +1,144 @@
+<section class="products" id="produits">
+  <div class="products-container">
+    <div class="section-header animate-fade-in-up">
+      <span class="section-label">{{ productsTitle() }}</span>
+      <h2 class="section-title">{{ productsSubtitle() }}</h2>
+      <p class="section-description">
+        {{ productsDescription() }}
+      </p>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="category-filter animate-fade-in">
+      <button class="filter-btn active" (click)="setCategory('all')">{{ productsAll() }}</button>
+      <button class="filter-btn" (click)="setCategory('ERP')">{{ productsERP() }}</button>
+      <button class="filter-btn" (click)="setCategory('GMAO')">{{ productsGMAO() }}</button>
+      <button class="filter-btn" (click)="setCategory('Sécurité')">{{ productsSecurity() }}</button>
+      <button class="filter-btn" (click)="setCategory('Cloud')">{{ productsCloud() }}</button>
+      <button class="filter-btn" (click)="setCategory('Développement')">{{ productsDevelopment() }}</button>
+      <button class="filter-btn" (click)="setCategory('Analytics')">{{ productsAnalytics() }}</button>
+    </div>
+
+    <div class="products-grid">
+      @for (product of displayedProducts(); track product.id) {
+      <div class="product-card animate-float-up glass-card hover-lift stagger-item"
+           [style.animation-delay.ms]="$index * 150">
+        <div class="product-header">
+          <div class="product-icon-wrapper">
+            <div class="product-icon animate-bounce-in" [innerHTML]="getIconSvg(product.iconSvg)"></div>
+            <div class="product-glow animate-glow"></div>
+          </div>
+          <div class="product-category text-gradient-animated">{{ product.category }}</div>
+        </div>
+
+          <div class="product-content">
+          <h3 class="product-title">{{ product.title }}</h3>
+          <p class="product-description">{{ product.description }}</p>
+
+          <div class="product-features">
+            @for (feature of product.features.slice(0, 4); track feature) {
+            <span class="feature-tag animate-slide-in-bottom">{{ feature }}</span>
+            }
+            @if (product.features.length > 4) {
+            <span class="feature-tag more-features animate-slide-in-bottom">+{{ product.features.length - 4 }} autres</span>
+            }
+          </div>
+        </div>
+
+        <div class="product-actions">
+          <button (click)="navigateToProduct(product.id)" class="product-link primary magnetic">
+            <span>{{ productsDiscover() }}</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="animate-bounce-in">
+              <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button (click)="navigateToContact()" class="product-link secondary magnetic">
+            <span>{{ languageService.translate('nav_contact') }}</span>
+          </button>
+        </div>
+
+        @if (product.testimonials && product.testimonials.length > 0) {
+        <div class="product-testimonial animate-fade-in-up">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">{{ product.testimonials[0].text }}</p>
+          <div class="testimonial-author">
+            <span class="author-name">{{ product.testimonials[0].author }}</span>
+            <span class="author-company">{{ product.testimonials[0].company }}</span>
+          </div>
+        </div>
+        }
+
+        <!-- Enhanced floating particles for eye candy -->
+        <div class="floating-particles">
+          @for (particle of [1,2,3,4,5,6,7,8]; track particle) {
+          <div class="particle animate-float-up"
+               [style.animation-delay.ms]="particle * 200"
+               [style.left.%]="particle * 15"
+               [style.animation-duration.s]="3 + particle * 0.5"></div>
+          }
+        </div>
+
+        <!-- Floating geometric shapes -->
+        <div class="floating-shapes">
+          <div class="shape circle" style="top: 10%; left: 80%; animation-delay: 0s;"></div>
+          <div class="shape square" style="top: 60%; left: 10%; animation-delay: 2s;"></div>
+          <div class="shape triangle" style="top: 80%; left: 70%; animation-delay: 4s;"></div>
+        </div>
+      </div>
+      }
+    </div>
+
+    <!-- Loading indicator -->
+    @if (isLoading()) {
+    <div class="loading-indicator animate-fade-in">
+      <div class="loading-container">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">
+          <span class="loading-main">{{ loadingText() }}</span>
+          <span class="loading-sub">{{ languageService.translate('more_info') }}</span>
+        </div>
+      </div>
+      <div class="loading-progress">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+    }
+
+    <!-- End message -->
+    @if (!hasMoreItems() && displayedProducts().length > 0) {
+    <div class="end-message animate-slide-in-bottom">
+      <div class="end-visual">
+        <div class="end-animation">
+          <div class="end-circle animate-pulse-slow"></div>
+          <div class="end-checkmark animate-draw-checkmark">&#10003;</div>    
+        </div>
+      </div>
+      <div class="end-content">
+        <h3>Vous avez exploré notre univers !</h3>
+        <p>Chaque solution est conçue pour répondre à vos défis uniques. Prêt à transformer votre entreprise ?</p>
+        <div class="end-actions">
+          <a routerLink="/contact" class="contact-cta magnetic">
+            <span>Commencer le dialogue</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a routerLink="/about" class="explore-more">
+            En savoir plus sur nous
+          </a>
+        </div>
+      </div>
+    </div>
+    }
+
+    <!-- Empty state -->
+    @if (displayedProducts().length === 0 && !isLoading()) {
+    <div class="empty-state">
+      <div class="empty-icon">🔍</div>
+      <h3>Aucun produit trouvé</h3>
+      <p>Essayez une autre catégorie ou contactez-nous pour une solution sur mesure.</p>
+    </div>
+    }
+  </div>
+</section>

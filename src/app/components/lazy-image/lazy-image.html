@@ -1,0 +1,28 @@
+<div class="lazy-image-container" [class.loaded]="isLoaded()" [class.error]="isError()">
+  <!-- Placeholder/Loading state -->
+  <div class="image-placeholder" *ngIf="isLoading() && !isError()">
+    <div class="shimmer"></div>
+  </div>
+
+  <!-- Error state -->
+  <div class="image-error" *ngIf="isError()">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <p>Failed to load image</p>
+  </div>
+
+  <!-- Actual image -->
+  <img
+    [src]="src"
+    [alt]="alt"
+    [width]="width"
+    [height]="height"
+    [srcset]="srcset()"
+    [sizes]="sizes()"
+    [loading]="loadingAttribute()"
+    [class.loaded]="isLoaded()"
+    (load)="onImageLoad()"
+    (error)="onImageError($event)"
+    *ngIf="!isError() || isLoaded()">
+</div>
