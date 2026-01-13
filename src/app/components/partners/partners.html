@@ -9,7 +9,7 @@
     </div>
 
     <div class="carousel-wrapper" *ngIf="partners.length > 0">
-      <button class="carousel-button carousel-button-prev" (click)="previous()" [disabled]="!canGoPrevious"
+      <button class="carousel-button carousel-button-prev" (click)="previous()" [disabled]="!canGoPrevious()"
         aria-label="Précédent">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -18,7 +18,8 @@
       </button>
 
       <div class="carousel-container">
-        <div class="carousel-track" [style.transform]="'translateX(-' + (currentIndex() * (100 / itemsPerView)) + '%)'">
+        <div class="carousel-track" 
+             [style.transform]="'translateX(calc(-' + currentIndex() + ' * ((100% + var(--carousel-gap)) / ' + itemsPerView() + ')))'">
           <div class="partner-card" *ngFor="let partner of partners; let i = index"
             [style.animation-delay]="(i * 0.05) + 's'">
             <div class="partner-card-inner">
@@ -33,7 +34,7 @@
         </div>
       </div>
 
-      <button class="carousel-button carousel-button-next" (click)="next()" [disabled]="!canGoNext"
+      <button class="carousel-button carousel-button-next" (click)="next()" [disabled]="!canGoNext()"
         aria-label="Suivant">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
