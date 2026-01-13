@@ -306,3 +306,97 @@
   }
 }
 
+/* ========================================
+   LIGHT THEME - Footer Overrides
+   Warm Sunset Elegance
+   ======================================== */
+:host-context(.light-theme) .footer {
+  background: rgba(245, 240, 232, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(232, 226, 217, 0.8);
+}
+
+:host-context(.light-theme) .footer::before {
+  background: linear-gradient(90deg, transparent, rgba(224, 120, 80, 0.3), transparent);
+}
+
+:host-context(.light-theme) .footer-content {
+  border-bottom-color: rgba(232, 226, 217, 0.6);
+}
+
+:host-context(.light-theme) .footer-title {
+  color: #2d2a26;
+}
+
+:host-context(.light-theme) .footer-tagline {
+  color: #4a4541;
+}
+
+:host-context(.light-theme) .footer-since {
+  color: #6b6560;
+}
+
+:host-context(.light-theme) .footer-links li a {
+  color: #4a4541;
+}
+
+:host-context(.light-theme) .footer-links li a:hover {
+  color: #e07850;
+  background: rgba(224, 120, 80, 0.06);
+  padding-left: 0.75rem;
+}
+
+:host-context(.light-theme) .footer-links li a::before {
+  background: #e07850;
+}
+
+:host-context(.light-theme) .footer-contact li {
+  color: #4a4541;
+}
+
+:host-context(.light-theme) .footer-contact li:hover {
+  background: rgba(224, 120, 80, 0.04);
+  color: #2d2a26;
+}
+
+:host-context(.light-theme) .footer-contact li svg {
+  color: #e07850;
+}
+
+:host-context(.light-theme) .footer-contact li:hover svg {
+  color: #c86040;
+}
+
+:host-context(.light-theme) .footer-contact li span {
+  color: #4a4541;
+}
+
+:host-context(.light-theme) .footer-contact li:hover span {
+  color: #2d2a26;
+}
+
+:host-context(.light-theme) .footer-contact li a {
+  color: #4a4541;
+}
+
+:host-context(.light-theme) .footer-contact li:hover a {
+  color: #e07850;
+}
+
+:host-context(.light-theme) .footer-copyright {
+  color: #6b6560;
+}
+
+:host-context(.light-theme) .footer-legal a {
+  color: #6b6560;
+}
+
+:host-context(.light-theme) .footer-legal a:hover {
+  color: #e07850;
+}
+
+:host-context(.light-theme) .separator {
+  color: #d9d2c7;
+}
+

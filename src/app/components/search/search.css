@@ -205,80 +205,118 @@
   margin: 0;
 }
 
-/* Light Theme Adjustments */
-.light-theme .search-input-wrapper {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(0, 102, 204, 0.2);
+/* ========================================
+   LIGHT THEME - Search Overrides
+   Warm Sunset Elegance
+   ======================================== */
+:host-context(.light-theme) .search-input-wrapper {
+  background: rgba(255, 252, 247, 0.95);
+  border: 1px solid #e8e2d9;
 }
 
-.light-theme .search-input-wrapper:focus-within {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: rgba(0, 102, 204, 0.4);
-  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+:host-context(.light-theme) .search-input-wrapper:focus-within {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: #e07850;
+  box-shadow: 0 0 0 3px rgba(224, 120, 80, 0.12);
 }
 
-.light-theme .search-input {
-  color: var(--primary-white);
+:host-context(.light-theme) .search-input {
+  color: #2d2a26;
 }
 
-.light-theme .search-input::placeholder {
-  color: var(--text-gray);
+:host-context(.light-theme) .search-input::placeholder {
+  color: #6b6560;
 }
 
-.light-theme .search-icon {
-  color: var(--text-gray);
+:host-context(.light-theme) .search-icon {
+  color: #6b6560;
 }
 
-.light-theme .search-clear {
-  color: var(--text-gray);
+:host-context(.light-theme) .search-clear {
+  color: #6b6560;
 }
 
-.light-theme .search-clear:hover {
-  color: var(--text-gray-dark);
-  background: rgba(0, 102, 204, 0.1);
+:host-context(.light-theme) .search-clear:hover {
+  color: #4a4541;
+  background: rgba(224, 120, 80, 0.1);
 }
 
-.light-theme .search-dropdown {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: rgba(0, 102, 204, 0.2);
+:host-context(.light-theme) .search-dropdown {
+  background: rgba(255, 252, 247, 0.98);
+  border: 1px solid #e8e2d9;
+  box-shadow: 0 20px 40px rgba(45, 42, 38, 0.12);
 }
 
-.light-theme .search-result-item:hover,
-.light-theme .search-result-item.selected {
-  background: rgba(0, 102, 204, 0.05);
-  border-color: rgba(0, 102, 204, 0.3);
+:host-context(.light-theme) .search-result-item:hover,
+:host-context(.light-theme) .search-result-item.selected {
+  background: rgba(224, 120, 80, 0.08);
+  border-color: rgba(224, 120, 80, 0.2);
 }
 
-.light-theme .result-title {
-  color: var(--primary-white);
+:host-context(.light-theme) .result-title {
+  color: #2d2a26;
 }
 
-.light-theme .result-description {
-  color: var(--text-gray);
+:host-context(.light-theme) .result-description {
+  color: #4a4541;
 }
 
-.light-theme .result-meta {
-  color: var(--text-gray-light);
+:host-context(.light-theme) .result-meta {
+  color: #6b6560;
 }
 
-.light-theme .search-more {
-  color: var(--text-gray);
+:host-context(.light-theme) .result-type {
+  background: rgba(224, 120, 80, 0.15);
+  color: #e07850;
 }
 
-.light-theme .search-more:hover {
-  color: var(--accent-blue);
+:host-context(.light-theme) .result-category {
+  color: #6b6560;
 }
 
-.light-theme .no-results-icon {
-  color: var(--text-gray);
+:host-context(.light-theme) .result-arrow {
+  color: #6b6560;
 }
 
-.light-theme .no-results-text {
-  color: var(--primary-white);
+:host-context(.light-theme) .search-result-item:hover .result-arrow,
+:host-context(.light-theme) .search-result-item.selected .result-arrow {
+  color: #e07850;
 }
 
-.light-theme .no-results-suggestion {
-  color: var(--text-gray);
+:host-context(.light-theme) .search-footer {
+  border-top-color: #e8e2d9;
+}
+
+:host-context(.light-theme) .search-more {
+  color: #6b6560;
+}
+
+:host-context(.light-theme) .search-more:hover {
+  color: #e07850;
+}
+
+:host-context(.light-theme) .no-results-icon {
+  color: #6b6560;
+}
+
+:host-context(.light-theme) .no-results-text {
+  color: #2d2a26;
+}
+
+:host-context(.light-theme) .no-results-suggestion {
+  color: #4a4541;
+}
+
+:host-context(.light-theme) .search-dropdown::-webkit-scrollbar-track {
+  background: rgba(250, 247, 242, 0.5);
+}
+
+:host-context(.light-theme) .search-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(224, 120, 80, 0.3);
+}
+
+:host-context(.light-theme) .search-dropdown::-webkit-scrollbar-thumb:hover {
+  background: rgba(224, 120, 80, 0.5);
 }
 
 /* Scrollbar Styling */

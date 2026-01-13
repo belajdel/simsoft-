@@ -545,3 +545,167 @@
     display: none;
   }
 }
+
+/* ========================================
+   LIGHT THEME - Hero Overrides
+   Warm Sunset Elegance
+   ======================================== */
+:host-context(.light-theme) .gradient-orb.orb-1 {
+  background: radial-gradient(circle, rgba(224, 120, 80, 0.18) 0%, transparent 70%);
+}
+
+:host-context(.light-theme) .gradient-orb.orb-2 {
+  background: radial-gradient(circle, rgba(212, 165, 116, 0.15) 0%, transparent 70%);
+}
+
+:host-context(.light-theme) .gradient-orb.orb-3 {
+  background: radial-gradient(circle, rgba(139, 154, 109, 0.12) 0%, transparent 70%);
+}
+
+:host-context(.light-theme) .hero-title {
+  background: linear-gradient(135deg, #2d2a26 0%, #4a4541 50%, #2d2a26 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+:host-context(.light-theme) .hero-tagline {
+  color: #4a4541;
+}
+
+:host-context(.light-theme) .accent-text {
+  background: linear-gradient(135deg, #e07850 0%, #d4a574 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+:host-context(.light-theme) .hero-description {
+  color: #6b6560;
+}
+
+:host-context(.light-theme) .btn-primary {
+  background: linear-gradient(135deg, #e07850 0%, #f09070 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(224, 120, 80, 0.35);
+}
+
+:host-context(.light-theme) .btn-primary:hover {
+  background: linear-gradient(135deg, #c86040 0%, #e07850 100%);
+  box-shadow: 0 12px 32px rgba(224, 120, 80, 0.45);
+}
+
+:host-context(.light-theme) .btn-secondary {
+  border: 2px solid #e8e2d9;
+  color: #4a4541;
+  background: transparent;
+}
+
+:host-context(.light-theme) .btn-secondary:hover {
+  background: rgba(224, 120, 80, 0.08);
+  border-color: #e07850;
+  color: #e07850;
+}
+
+:host-context(.light-theme) .hero-stats {
+  border-top-color: #e8e2d9;
+}
+
+:host-context(.light-theme) .stat-number {
+  background: linear-gradient(135deg, #e07850 0%, #d4a574 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+:host-context(.light-theme) .stat-label {
+  color: #6b6560;
+}
+
+:host-context(.light-theme) .hero-about .section-label {
+  background: rgba(224, 120, 80, 0.1);
+  border: 1px solid rgba(224, 120, 80, 0.2);
+  color: #e07850;
+}
+
+:host-context(.light-theme) .hero-about .section-title {
+  background: linear-gradient(135deg, #2d2a26 0%, #4a4541 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+:host-context(.light-theme) .hero-about .about-description p {
+  color: #4a4541;
+}
+
+:host-context(.light-theme) .hero-about .about-description strong {
+  color: #2d2a26;
+}
+
+:host-context(.light-theme) .hero-about .stat-card {
+  background: linear-gradient(135deg, rgba(255, 252, 247, 0.9) 0%, rgba(250, 247, 242, 0.85) 100%);
+  border: 1px solid #e8e2d9;
+}
+
+:host-context(.light-theme) .hero-about .stat-card:hover {
+  border-color: #e07850;
+  box-shadow: 0 10px 30px rgba(224, 120, 80, 0.15);
+}
+
+:host-context(.light-theme) .hero-about .stat-card .stat-number {
+  background: linear-gradient(135deg, #e07850 0%, #d4a574 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+:host-context(.light-theme) .hero-about .stat-card .stat-label {
+  color: #6b6560;
+}
+
+:host-context(.light-theme) .hero-about .visual-card {
+  background: linear-gradient(135deg, rgba(224, 120, 80, 0.04) 0%, rgba(255, 252, 247, 0.9) 100%);
+  border: 1px solid #e8e2d9;
+}
+
+:host-context(.light-theme) .hero-about .visual-card:hover {
+  border-color: #e07850;
+  box-shadow: 0 15px 40px rgba(224, 120, 80, 0.12);
+}
+
+:host-context(.light-theme) .hero-about .visual-card::before {
+  background: linear-gradient(90deg, transparent, #e07850, transparent);
+}
+
+:host-context(.light-theme) .hero-about .card-icon {
+  color: #e07850;
+  filter: drop-shadow(0 4px 12px rgba(224, 120, 80, 0.25));
+}
+
+:host-context(.light-theme) .hero-about .visual-card h3 {
+  color: #2d2a26;
+}
+
+:host-context(.light-theme) .hero-about .visual-card p {
+  color: #6b6560;
+}
+
+:host-context(.light-theme) .hero-logo {
+  filter: drop-shadow(0 0 40px rgba(224, 120, 80, 0.2));
+}
+
+:host-context(.light-theme) .mouse {
+  border-color: #6b6560;
+}
+
+:host-context(.light-theme) .wheel {
+  background: #6b6560;
+}
+
+:host-context(.light-theme) .arrow span {
+  border-right-color: #6b6560;
+  border-bottom-color: #6b6560;
+}

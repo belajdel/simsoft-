@@ -103,6 +103,48 @@
   background: rgba(15, 23, 42, 0.98);
 }
 
+/* ========================================
+   LIGHT THEME - Language Switcher Overrides
+   Warm Sunset Elegance
+   ======================================== */
+:host-context(.light-theme) .language-toggle {
+  background: rgba(250, 247, 242, 0.9);
+  border: 1px solid #e8e2d9;
+  color: #4a4541;
+}
+
+:host-context(.light-theme) .language-toggle:hover {
+  background: rgba(224, 120, 80, 0.08);
+  border-color: #e07850;
+}
+
+:host-context(.light-theme) .dropdown-arrow {
+  color: #6b6560;
+}
+
+:host-context(.light-theme) .language-dropdown {
+  background: rgba(255, 252, 247, 0.98);
+  border: 1px solid #e8e2d9;
+  box-shadow: 0 8px 32px rgba(45, 42, 38, 0.12);
+}
+
+:host-context(.light-theme) .language-option {
+  color: #4a4541;
+}
+
+:host-context(.light-theme) .language-option:hover {
+  background: rgba(224, 120, 80, 0.08);
+}
+
+:host-context(.light-theme) .language-option.active {
+  background: linear-gradient(135deg, #e07850 0%, #f09070 100%);
+  color: #ffffff;
+}
+
+:host-context(.light-theme) .language-option.active:hover {
+  background: linear-gradient(135deg, #c86040 0%, #e07850 100%);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .language-dropdown {

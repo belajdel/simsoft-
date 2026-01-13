@@ -81,31 +81,50 @@ body {
   --glass-border: rgba(255, 255, 255, 0.08);
 }
 
-/* Light Theme Variables - Blue and White */
+/* ========================================
+   LIGHT THEME - Warm Sunset Elegance
+   A sophisticated, warm color palette
+   ======================================== */
 .light-theme {
-  --primary-black: #3a5f8f;      /* Softer, more readable primary blue */
-  --primary-black-dark: #2c4a7e;  /* Mellowed darker blue */
-  --primary-black-light: #4c4968;  /* Light gray for background */
-  --primary-white: #1e293b;
-  --accent-blue: #17818f;
-  --accent-blue-light: #0084ff;
-  --accent-blue-dark: #b3b62b;
-  --text-gray: #e9e5e5;
-  --text-gray-light: #000000;
-  --text-gray-dark: #334155;
-  --border-gray: #e2e8f0;
-  --border-gray-light: #cbd5e1;
-  --glass-bg: rgba(255, 255, 255, 0.95);
-  --glass-border: rgba(0, 102, 204, 0.1);
+  /* Core Colors - Warm Ivory/Cream Base */
+  --primary-black: #faf7f2;           /* Warm ivory background */
+  --primary-black-dark: #f5f0e8;      /* Slightly deeper cream */
+  --primary-black-light: #fffcf7;     /* Lightest cream highlight */
+  
+  /* Text Colors - Rich Warm Charcoal */
+  --primary-white: #2d2a26;           /* Deep warm charcoal for headings */
+  --text-gray: #4a4541;               /* Medium charcoal for body text */
+  --text-gray-light: #6b6560;         /* Lighter text for secondary content */
+  --text-gray-dark: #1f1d1a;          /* Darkest text for emphasis */
+  
+  /* Accent Colors - Sunset Coral & Amber */
+  --accent-blue: #e07850;             /* Warm coral/terracotta primary accent */
+  --accent-blue-light: #f09070;       /* Lighter coral for hover states */
+  --accent-blue-dark: #c86040;        /* Deeper coral for active states */
+  --accent-purple: #d4a574;           /* Golden amber secondary accent */
+  --accent-cyan: #8b9a6d;             /* Sage green tertiary accent */
+  
+  /* Border Colors - Warm & Subtle */
+  --border-gray: #e8e2d9;             /* Warm light border */
+  --border-gray-light: #d9d2c7;       /* Medium warm border */
+  
+  /* Glass Effects - Warm Tinted */
+  --glass-bg: rgba(255, 252, 247, 0.92);
+  --glass-border: rgba(224, 120, 80, 0.12);
 
-  /* Light theme specific adjustments */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 102, 204, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 102, 204, 0.1), 0 2px 4px -1px rgba(0, 102, 204, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 102, 204, 0.1), 0 4px 6px -2px rgba(0, 102, 204, 0.05);
-  --shadow-glow: 0 0 25px rgba(0, 102, 204, 0.2);
+  /* Shadows - Warm & Organic */
+  --shadow-sm: 0 1px 3px rgba(45, 42, 38, 0.04), 0 1px 2px rgba(45, 42, 38, 0.06);
+  --shadow-md: 0 4px 12px rgba(45, 42, 38, 0.06), 0 2px 6px rgba(45, 42, 38, 0.04);
+  --shadow-lg: 0 12px 28px rgba(45, 42, 38, 0.08), 0 6px 12px rgba(45, 42, 38, 0.05);
+  --shadow-glow: 0 0 30px rgba(224, 120, 80, 0.15);
 }
-.light-theme .stat-number{
-    color: var(--primary-white);
+
+.light-theme .stat-number {
+  color: var(--accent-blue);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Apply theme transitions */
@@ -113,93 +132,142 @@ body {
   transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Light Theme Specific Overrides - Blue and White */
+/* ========================================
+   LIGHT THEME OVERRIDES - Warm Sunset Elegance
+   ======================================== */
+
+/* Main Background - Warm Gradient */
 .light-theme {
-  background: linear-gradient(135deg, #ffffff 0%, #f8fbff 50%, #f0f7ff 100%);
-  color: var(--primary-white);
+  background: 
+    linear-gradient(135deg, #faf7f2 0%, #f5f0e8 40%, #fef9f3 70%, #fffcf7 100%);
+  color: var(--text-gray);
 }
 
 .light-theme body {
-  background: linear-gradient(135deg, #ffffff 0%, #f8fbff 50%, #f0f7ff 100%);
-  color: var(--primary-white);
+  background: 
+    linear-gradient(135deg, #faf7f2 0%, #f5f0e8 40%, #fef9f3 70%, #fffcf7 100%);
+  color: var(--text-gray);
 }
 
+/* Decorative Background Pattern */
+.light-theme::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at 20% 20%, rgba(224, 120, 80, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(212, 165, 116, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(139, 154, 109, 0.04) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glass Panel Effects */
 .light-theme .glass-panel {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(15px);
-  border: 2px solid rgba(0, 102, 204, 0.15);
+  background: rgba(255, 252, 247, 0.88);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(224, 120, 80, 0.1);
   box-shadow:
-    0 8px 32px rgba(0, 102, 204, 0.1),
+    0 8px 32px rgba(45, 42, 38, 0.06),
+    0 2px 8px rgba(45, 42, 38, 0.04),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .light-theme .glass-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(145deg, rgba(255, 252, 247, 0.95) 0%, rgba(250, 247, 242, 0.9) 100%);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 102, 204, 0.2);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(232, 226, 217, 0.8);
   box-shadow:
-    0 12px 40px rgba(0, 102, 204, 0.15),
-    0 4px 12px rgba(0, 102, 204, 0.1);
+    0 10px 40px rgba(45, 42, 38, 0.08),
+    0 4px 16px rgba(45, 42, 38, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .light-theme .glass-card:hover {
-  border-color: rgba(0, 102, 204, 0.3);
+  border-color: rgba(224, 120, 80, 0.25);
   box-shadow:
-    0 20px 60px rgba(0, 102, 204, 0.2),
-    0 8px 20px rgba(0, 102, 204, 0.15);
+    0 20px 50px rgba(224, 120, 80, 0.12),
+    0 8px 24px rgba(45, 42, 38, 0.08);
   transform: translateY(-4px);
 }
 
+/* Header Styles */
 .light-theme .header {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 102, 204, 0.1);
-  box-shadow: 0 2px 20px rgba(0, 102, 204, 0.08);
+  background: rgba(250, 247, 242, 0.92);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border-bottom: 1px solid rgba(232, 226, 217, 0.6);
+  box-shadow: 0 2px 20px rgba(45, 42, 38, 0.04);
 }
 
 .light-theme .header.scrolled {
-  background: rgba(255, 255, 255, 0.98);
-  border-bottom-color: rgba(0, 102, 204, 0.2);
-  box-shadow: 0 4px 30px rgba(0, 102, 204, 0.12);
+  background: rgba(250, 247, 242, 0.97);
+  border-bottom-color: rgba(224, 120, 80, 0.15);
+  box-shadow: 0 4px 30px rgba(45, 42, 38, 0.08);
 }
 
-/* Light theme text and UI adjustments */
-.light-theme h1, .light-theme h2, .light-theme h3 {
+/* Typography */
+.light-theme h1, 
+.light-theme h2, 
+.light-theme h3,
+.light-theme h4,
+.light-theme h5,
+.light-theme h6 {
   color: var(--primary-white);
-  text-shadow: 0 2px 4px rgba(0, 102, 204, 0.1);
+  text-shadow: none;
 }
 
 .light-theme p {
-  color: white;
+  color: var(--text-gray);
 }
 
+.light-theme a {
+  color: var(--accent-blue);
+}
 
+.light-theme a:hover {
+  color: var(--accent-blue-dark);
+}
+
+/* Gradient Text Effects */
 .light-theme .text-gradient {
-  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-light) 100%);
+  background: linear-gradient(135deg, var(--primary-white) 0%, var(--text-gray) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: none;
 }
 
-.light-theme .product-description {
-    font-size: 1.125rem;         /* Adjust font size if needed */
-    color: var(--text-gray);     /* Match the text color for better readability */
-    line-height: 1.6;            /* Slightly adjusted line height */
-    margin-bottom: var(--spacing-sm); /* Adjust spacing for better layout */
-}
-
-
-
-
 .light-theme .text-gradient-blue {
-  background: linear-gradient(135deg, var(--accent-blue-dark) 0%, var(--accent-blue) 100%);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Light theme navigation */
+.light-theme .text-gradient-animated {
+  background: linear-gradient(-45deg, #e07850, #f09070, #d4a574, #8b9a6d);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease infinite;
+}
+
+/* Product Description */
+.light-theme .product-description {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Navigation Links */
 .light-theme .nav-link {
   color: var(--text-gray);
   transition: all 0.3s ease;
@@ -207,50 +275,478 @@ body {
 
 .light-theme .nav-link:hover {
   color: var(--accent-blue);
-  background: rgba(0, 102, 204, 0.05);
+  background: rgba(224, 120, 80, 0.08);
 }
 
-/* Light theme products */
+.light-theme .nav-link::after {
+  background: var(--accent-blue);
+}
+
+.light-theme .nav-cta {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-light) 100%);
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(224, 120, 80, 0.3);
+}
+
+.light-theme .nav-cta:hover {
+  background: linear-gradient(135deg, var(--accent-blue-dark) 0%, var(--accent-blue) 100%);
+  box-shadow: 0 6px 24px rgba(224, 120, 80, 0.4);
+}
+
+/* Product Cards */
 .light-theme .product-card {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 102, 204, 0.15);
-  box-shadow: 0 8px 25px rgba(0, 102, 204, 0.08);
+  background: linear-gradient(145deg, rgba(255, 252, 247, 0.98) 0%, rgba(250, 247, 242, 0.95) 100%);
+  border: 1px solid rgba(232, 226, 217, 0.8);
+  box-shadow: 0 8px 30px rgba(45, 42, 38, 0.06);
 }
 
 .light-theme .product-card:hover {
-  border-color: rgba(0, 102, 204, 0.25);
-  box-shadow: 0 15px 35px rgba(0, 102, 204, 0.15);
-  transform: translateY(-6px);
+  border-color: rgba(224, 120, 80, 0.3);
+  box-shadow: 
+    0 20px 50px rgba(224, 120, 80, 0.1),
+    0 10px 24px rgba(45, 42, 38, 0.06);
+  transform: translateY(-8px);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 1) 0%, rgba(254, 251, 247, 0.98) 100%);
 }
 
-/* Light theme buttons */
+.light-theme .product-card::before {
+  background: linear-gradient(90deg, transparent, var(--accent-blue), var(--accent-purple), transparent);
+}
+
+.light-theme .product-title {
+  color: var(--primary-white);
+}
+
+.light-theme .product-icon {
+  color: var(--accent-blue);
+  filter: drop-shadow(0 4px 12px rgba(224, 120, 80, 0.25));
+}
+
+.light-theme .product-glow {
+  background: radial-gradient(circle, var(--accent-blue) 0%, transparent 70%);
+}
+
+.light-theme .product-category {
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+}
+
+.light-theme .feature-tag {
+  background: rgba(224, 120, 80, 0.1);
+  border: 1px solid rgba(224, 120, 80, 0.2);
+  color: var(--accent-blue);
+}
+
+/* Section Labels */
+.light-theme .section-label {
+  background: rgba(224, 120, 80, 0.1);
+  border: 1px solid rgba(224, 120, 80, 0.2);
+  color: var(--accent-blue);
+}
+
+.light-theme .section-title {
+  background: linear-gradient(135deg, var(--primary-white) 0%, var(--text-gray) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.light-theme .section-description {
+  color: var(--text-gray-light);
+}
+
+/* Buttons */
+.light-theme .btn-primary {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-light) 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(224, 120, 80, 0.35);
+}
+
+.light-theme .btn-primary:hover {
+  background: linear-gradient(135deg, var(--accent-blue-dark) 0%, var(--accent-blue) 100%);
+  box-shadow: 0 12px 32px rgba(224, 120, 80, 0.45);
+}
+
+.light-theme .btn-secondary {
+  border: 2px solid var(--border-gray);
+  color: var(--text-gray);
+  background: transparent;
+}
+
+.light-theme .btn-secondary:hover {
+  background: rgba(224, 120, 80, 0.08);
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+
 .light-theme .product-link.primary {
   background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-light) 100%);
-  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(224, 120, 80, 0.3);
 }
 
 .light-theme .product-link.primary:hover {
   background: linear-gradient(135deg, var(--accent-blue-dark) 0%, var(--accent-blue) 100%);
-  box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
+  box-shadow: 0 8px 28px rgba(224, 120, 80, 0.4);
 }
 
-/* Light theme loading states */
+.light-theme .product-link.secondary {
+  background: rgba(250, 247, 242, 0.8);
+  border: 1px solid var(--border-gray);
+  color: var(--text-gray);
+}
+
+.light-theme .product-link.secondary:hover {
+  background: rgba(224, 120, 80, 0.08);
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+
+/* Filter Buttons */
+.light-theme .filter-btn {
+  background: rgba(255, 252, 247, 0.9);
+  border: 1px solid var(--border-gray);
+  color: var(--text-gray);
+}
+
+.light-theme .filter-btn:hover {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  box-shadow: 0 4px 12px rgba(224, 120, 80, 0.15);
+}
+
+.light-theme .filter-btn.active {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-light) 100%);
+  color: #ffffff;
+  border-color: var(--accent-blue);
+  box-shadow: 0 4px 16px rgba(224, 120, 80, 0.35);
+}
+
+/* Hero Section */
+.light-theme .hero-title {
+  background: linear-gradient(135deg, var(--primary-white) 0%, var(--text-gray) 50%, var(--primary-white) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.light-theme .hero-tagline {
+  color: var(--text-gray);
+}
+
+.light-theme .hero-description {
+  color: var(--text-gray-light);
+}
+
+.light-theme .accent-text {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.light-theme .hero-stats {
+  border-top-color: var(--border-gray);
+}
+
+.light-theme .stat-label {
+  color: var(--text-gray-light);
+}
+
+/* Gradient Orbs for Hero */
+.light-theme .gradient-orb.orb-1 {
+  background: radial-gradient(circle, rgba(224, 120, 80, 0.15) 0%, transparent 70%);
+}
+
+.light-theme .gradient-orb.orb-2 {
+  background: radial-gradient(circle, rgba(212, 165, 116, 0.12) 0%, transparent 70%);
+}
+
+.light-theme .gradient-orb.orb-3 {
+  background: radial-gradient(circle, rgba(139, 154, 109, 0.1) 0%, transparent 70%);
+}
+
+/* Hero Logo */
+.light-theme .hero-logo {
+  filter: drop-shadow(0 0 40px rgba(224, 120, 80, 0.2));
+}
+
+/* About Section Cards */
+.light-theme .stat-card {
+  background: linear-gradient(135deg, rgba(255, 252, 247, 0.9) 0%, rgba(250, 247, 242, 0.85) 100%);
+  border: 1px solid var(--border-gray);
+}
+
+.light-theme .stat-card:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 10px 30px rgba(224, 120, 80, 0.15);
+}
+
+.light-theme .visual-card {
+  background: linear-gradient(135deg, rgba(224, 120, 80, 0.04) 0%, rgba(255, 252, 247, 0.9) 100%);
+  border: 1px solid var(--border-gray);
+}
+
+.light-theme .visual-card:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 15px 40px rgba(224, 120, 80, 0.12);
+}
+
+.light-theme .visual-card::before {
+  background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+}
+
+.light-theme .card-icon {
+  color: var(--accent-blue);
+  filter: drop-shadow(0 4px 12px rgba(224, 120, 80, 0.25));
+}
+
+.light-theme .about-description strong {
+  color: var(--primary-white);
+}
+
+/* Footer */
+.light-theme .footer {
+  background: rgba(245, 240, 232, 0.6);
+  border-top: 1px solid rgba(232, 226, 217, 0.8);
+}
+
+.light-theme .footer::before {
+  background: linear-gradient(90deg, transparent, rgba(224, 120, 80, 0.3), transparent);
+}
+
+.light-theme .footer-title {
+  color: var(--primary-white);
+}
+
+.light-theme .footer-tagline,
+.light-theme .footer-since {
+  color: var(--text-gray-light);
+}
+
+.light-theme .footer-links li a {
+  color: var(--text-gray);
+}
+
+.light-theme .footer-links li a:hover {
+  color: var(--accent-blue);
+  background: rgba(224, 120, 80, 0.06);
+}
+
+.light-theme .footer-links li a::before {
+  background: var(--accent-blue);
+}
+
+.light-theme .footer-contact li {
+  color: var(--text-gray);
+}
+
+.light-theme .footer-contact li:hover {
+  background: rgba(224, 120, 80, 0.04);
+  color: var(--primary-white);
+}
+
+.light-theme .footer-contact li svg {
+  color: var(--accent-blue);
+}
+
+.light-theme .footer-contact li a {
+  color: var(--text-gray);
+}
+
+.light-theme .footer-contact li:hover a {
+  color: var(--accent-blue);
+}
+
+.light-theme .footer-copyright,
+.light-theme .footer-legal a {
+  color: var(--text-gray-light);
+}
+
+.light-theme .footer-legal a:hover {
+  color: var(--accent-blue);
+}
+
+.light-theme .footer-content {
+  border-bottom-color: rgba(232, 226, 217, 0.6);
+}
+
+/* Loading States */
 .light-theme .loading-spinner {
+  border-color: rgba(224, 120, 80, 0.15);
   border-top-color: var(--accent-blue);
 }
 
-/* Light theme scrollbar */
+.light-theme .loading-spinner::before {
+  border-top-color: var(--accent-purple);
+}
+
+.light-theme .loading-main {
+  background: linear-gradient(-45deg, #e07850, #f09070, #d4a574, #8b9a6d);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.light-theme .loading-sub {
+  color: var(--text-gray-light);
+}
+
+.light-theme .progress-bar {
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+}
+
+/* Contact CTA */
+.light-theme .contact-cta {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-light) 100%);
+  box-shadow: 0 8px 25px rgba(224, 120, 80, 0.3);
+}
+
+.light-theme .contact-cta:hover {
+  box-shadow: 0 12px 35px rgba(224, 120, 80, 0.4);
+}
+
+.light-theme .explore-more {
+  color: var(--accent-blue);
+}
+
+.light-theme .explore-more:hover {
+  color: var(--accent-blue-dark);
+  background: rgba(224, 120, 80, 0.08);
+}
+
+/* Testimonials */
+.light-theme .product-testimonial {
+  background: linear-gradient(135deg, rgba(250, 247, 242, 0.9) 0%, rgba(245, 240, 232, 0.85) 100%);
+  border: 1px solid var(--border-gray);
+}
+
+.light-theme .testimonial-quote {
+  color: var(--accent-blue);
+}
+
+.light-theme .testimonial-text {
+  color: var(--text-gray);
+}
+
+.light-theme .author-name {
+  color: var(--primary-white);
+}
+
+.light-theme .author-company {
+  color: var(--accent-blue);
+}
+
+/* Particles */
+.light-theme .particle {
+  background: var(--accent-blue);
+}
+
+/* Scrollbar */
 .light-theme ::-webkit-scrollbar-track {
-  background: var(--primary-black-light);
+  background: var(--primary-black);
 }
 
 .light-theme ::-webkit-scrollbar-thumb {
-  background: rgba(0, 102, 204, 0.3);
+  background: rgba(224, 120, 80, 0.3);
   border-radius: 6px;
+  border: 2px solid var(--primary-black);
 }
 
 .light-theme ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 102, 204, 0.5);
+  background: rgba(224, 120, 80, 0.5);
+}
+
+/* Selection */
+.light-theme ::selection {
+  background: var(--accent-blue);
+  color: #ffffff;
+}
+
+.light-theme ::-moz-selection {
+  background: var(--accent-blue);
+  color: #ffffff;
+}
+
+/* Menu Toggle for Mobile */
+.light-theme .menu-toggle {
+  background: rgba(250, 247, 242, 0.9);
+  border: 1px solid var(--border-gray);
+}
+
+.light-theme .menu-toggle:hover {
+  background: rgba(224, 120, 80, 0.08);
+  border-color: var(--accent-blue);
+}
+
+.light-theme .menu-icon span {
+  background: var(--text-gray);
+}
+
+/* Mobile Nav */
+.light-theme .nav.active {
+  background: rgba(250, 247, 242, 0.98);
+}
+
+/* Mouse Scroll Indicator */
+.light-theme .mouse {
+  border-color: var(--text-gray-light);
+}
+
+.light-theme .wheel {
+  background: var(--text-gray-light);
+}
+
+.light-theme .arrow span {
+  border-right-color: var(--text-gray-light);
+  border-bottom-color: var(--text-gray-light);
+}
+
+/* Glass Enhanced */
+.light-theme .glass-enhanced {
+  background: rgba(255, 252, 247, 0.85);
+  border: 1px solid rgba(232, 226, 217, 0.6);
+  box-shadow:
+    0 8px 32px rgba(45, 42, 38, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Floating Shapes */
+.light-theme .shape.circle {
+  background: var(--accent-blue);
+}
+
+.light-theme .shape.square {
+  background: var(--accent-purple);
+}
+
+.light-theme .shape.triangle {
+  border-bottom-color: var(--accent-cyan);
+}
+
+/* Hover Lift Effect */
+.light-theme .hover-lift:hover {
+  box-shadow: 0 20px 40px rgba(224, 120, 80, 0.2);
+}
+
+/* Pulse Ring */
+.light-theme .pulse-ring::before {
+  border-color: var(--accent-blue);
+}
+
+/* Glow Animation */
+.light-theme .animate-glow {
+  animation: light-glow 2s ease-in-out infinite;
+}
+
+@keyframes light-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(224, 120, 80, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(224, 120, 80, 0.4), 0 0 60px rgba(212, 165, 116, 0.3);
+  }
 }
 
 /* Typography */

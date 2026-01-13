@@ -64,6 +64,27 @@
   transition: all 0.3s ease;
 }
 
+/* ========================================
+   LIGHT THEME - Theme Switcher Overrides
+   Warm Sunset Elegance
+   ======================================== */
+:host-context(.light-theme) .theme-switcher:hover {
+  background: rgba(224, 120, 80, 0.1);
+}
+
+:host-context(.light-theme) .switcher-track {
+  background: rgba(45, 42, 38, 0.12);
+}
+
+:host-context(.light-theme) .theme-switcher:hover .switcher-track {
+  background: rgba(45, 42, 38, 0.18);
+}
+
+:host-context(.light-theme) .switcher-thumb {
+  background: linear-gradient(135deg, #e07850 0%, #f09070 100%);
+  box-shadow: 0 2px 8px rgba(224, 120, 80, 0.4);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .switcher-container {

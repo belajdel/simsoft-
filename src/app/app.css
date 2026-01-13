@@ -104,3 +104,37 @@ app-footer {
   position: relative;
   z-index: 1;
 }
+
+/* ========================================
+   LIGHT THEME - App Background Overrides
+   Warm Sunset Elegance
+   ======================================== */
+:host-context(.light-theme) {
+  background: linear-gradient(135deg, #faf7f2 0%, #f5f0e8 40%, #fef9f3 70%, #fffcf7 100%);
+}
+
+:host-context(.light-theme)::before {
+  background:
+    radial-gradient(ellipse at 25% 30%, rgba(224, 120, 80, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 70%, rgba(212, 165, 116, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 50%, rgba(139, 154, 109, 0.05) 0%, transparent 60%),
+    linear-gradient(135deg, #faf7f2 0%, #f5f0e8 50%, #fffcf7 100%);
+  animation: lightBackgroundShift 25s ease-in-out infinite;
+}
+
+:host-context(.light-theme)::after {
+  background-image:
+    linear-gradient(rgba(224, 120, 80, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(224, 120, 80, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.5;
+}
+
+@keyframes lightBackgroundShift {
+  0%, 100% {
+    background-position: 0% 0%, 100% 100%, 50% 50%;
+  }
+  50% {
+    background-position: 100% 100%, 0% 0%, 50% 50%;
+  }
+}
