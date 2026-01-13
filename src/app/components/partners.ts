@@ -21,20 +21,15 @@ export class Partners {
     { name: 'AF-Beton', logo: '/References/AF-Beton.png' },
     { name: 'AF-TR', logo: '/References/AF-TR.png' },
     { name: 'Assenceur Zouali', logo: '/References/assenceur-zouali.png' },
-    { name: 'Borni Transport', logo: '/References/borni-transport.png' },
+
     { name: 'CCMM', logo: '/References/CCMM.png' },
     { name: 'CNP', logo: '/References/cnp.png' },
     { name: 'Falcon Inter', logo: '/References/falcon-inter.png' },
     { name: 'Gravic', logo: '/References/gravic.png' },
     { name: 'CGPR', logo: '/References/LOGO-CGPR.png' },
-    { name: 'STE MRASI Frères', logo: '/References/LOGO-STE-MRASI-Fréres.jpg' },
     { name: 'Municipalité Rouad', logo: '/References/municipalité_rouad.png' },
-    { name: 'Orange Tunisie', logo: '/References/orange-tunis.png' },
     { name: 'SMTT', logo: '/References/SMTT.png' },
     { name: 'SNTT Tataouine', logo: '/References/société-SNTT-tataouine.jpg' },
-    { name: 'Sotufab', logo: '/References/sotufab.png' },
-    { name: 'Sotufab Plast', logo: '/References/sotufab-plast.png' },
-    { name: 'Spolo', logo: '/References/spolo.png' },
     { name: 'TIS', logo: '/References/TIS_Resize.png' },
     { name: 'Watts', logo: '/References/watts-1.png' }
   ];

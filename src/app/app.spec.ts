@@ -22,3 +22,10 @@ describe('App', () => {
     expect(compiled.querySelector('app-header')).toBeTruthy();
   });
 });
+/*
+orange 
+borni
+cnp 
+mrassi freres 
+sotufab
+spolo */
