@@ -18,19 +18,34 @@ export class Partners {
   itemsPerView = signal(4); // Default to 4
   
   partners: Partner[] = [
+    { name: 'CGPR', logo: '/References/LOGO-CGPR.png' },
     { name: 'AF-Beton', logo: '/References/AF-Beton.png' },
     { name: 'AF-TR', logo: '/References/AF-TR.png' },
+    { name: 'AF-TR (2)', logo: '/References/AF-TR(2).png' },
     { name: 'Assenceur Zouali', logo: '/References/assenceur-zouali.png' },
-
+    { name: 'ATEX', logo: '/References/atex.png' },
     { name: 'CCMM', logo: '/References/CCMM.png' },
+    { name: 'Chahia', logo: '/References/chahia.png' },
     { name: 'CNP', logo: '/References/cnp.png' },
+    { name: 'Commune Nabeul', logo: '/References/communenabeul.png' },
+    { name: 'CoProPha', logo: '/References/coProPha.png' },
+    { name: 'CTM', logo: '/References/ctm.png' },
+    { name: 'El Jam', logo: '/References/eljam.png' },
     { name: 'Falcon Inter', logo: '/References/falcon-inter.png' },
     { name: 'Gravic', logo: '/References/gravic.png' },
-    { name: 'CGPR', logo: '/References/LOGO-CGPR.png' },
+    { name: 'Linde', logo: '/References/linde.png' },
+    { name: 'STE MRASI Frères', logo: '/References/LOGO-STE-MRASI-Fréres.png' },
+    { name: 'Mabrouka', logo: '/References/mabrouka.png' },
     { name: 'Municipalité Rouad', logo: '/References/municipalité_rouad.png' },
+    { name: 'Newbox', logo: '/References/newbox.png' },
     { name: 'SMTT', logo: '/References/SMTT.png' },
     { name: 'SNTT Tataouine', logo: '/References/société-SNTT-tataouine.jpg' },
+    { name: 'SRT Kef', logo: '/References/srtKef.png' },
+    { name: 'SRT Sud', logo: '/References/srtsud.png' },
+    { name: 'Téléchargement', logo: '/References/téléchargement-2.png' },
+    { name: 'Thapsus Voyage', logo: '/References/thapsusVoyage.png' },
     { name: 'TIS', logo: '/References/TIS_Resize.png' },
+    { name: 'VIT', logo: '/References/vit.png' },
     { name: 'Watts', logo: '/References/watts-1.png' }
   ];
 
