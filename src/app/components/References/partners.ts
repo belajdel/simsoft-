@@ -15,7 +15,7 @@ interface Partner {
 })
 export class Partners {
   currentIndex = signal(0);
-  itemsPerView = signal(4); // Default to 4
+  itemsPerView = signal(4);
 
   partners: Partner[] = [
     { name: 'CGPR', logo: '/References/LOGO-CGPR.png' },

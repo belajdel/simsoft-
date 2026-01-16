@@ -377,119 +377,119 @@
 
 /* ========================================
    LIGHT THEME - Footer
-   Warm & Elegant Design
+   Soft Sage & Lavender Elegance
    ======================================== */
 :host-context(.light-theme) .footer {
-  background: linear-gradient(180deg, rgba(250, 247, 242, 0.95) 0%, rgba(245, 240, 232, 0.98) 100%);
+  background: linear-gradient(180deg, rgba(240, 244, 241, 0.95) 0%, rgba(229, 237, 231, 0.98) 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(232, 226, 217, 0.8);
+  border-top: 1px solid rgba(216, 228, 220, 0.8);
 }
 
 :host-context(.light-theme) .footer::before {
   background: linear-gradient(90deg, 
     transparent 0%, 
-    rgba(30, 64, 175, 0.2) 20%, 
-    rgba(30, 64, 175, 0.5) 50%, 
-    rgba(30, 64, 175, 0.2) 80%, 
+    rgba(124, 92, 206, 0.25) 20%, 
+    rgba(155, 127, 219, 0.4) 50%, 
+    rgba(124, 92, 206, 0.25) 80%, 
     transparent 100%);
 }
 
 :host-context(.light-theme) .footer::after {
-  background: radial-gradient(ellipse, rgba(30, 64, 175, 0.06) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(124, 92, 206, 0.08) 0%, transparent 70%);
 }
 
 :host-context(.light-theme) .footer-content {
-  border-bottom-color: rgba(232, 226, 217, 0.8);
+  border-bottom-color: rgba(216, 228, 220, 0.8);
 }
 
 /* Brand - Light Theme */
 :host-context(.light-theme) .footer-logo {
-  filter: drop-shadow(0 4px 12px rgba(30, 64, 175, 0.15));
+  filter: drop-shadow(0 4px 12px rgba(124, 92, 206, 0.2));
 }
 
 :host-context(.light-theme) .footer-logo:hover {
-  filter: drop-shadow(0 6px 20px rgba(30, 64, 175, 0.25));
+  filter: drop-shadow(0 6px 20px rgba(124, 92, 206, 0.3));
 }
 
 :host-context(.light-theme) .footer-tagline {
-  color: #4a4541;
+  color: #2d4a3e;
 }
 
 :host-context(.light-theme) .footer-since {
-  color: #1e40af;
-  background: linear-gradient(135deg, rgba(30, 64, 175, 0.08) 0%, rgba(59, 130, 246, 0.06) 100%);
-  border: 1px solid rgba(30, 64, 175, 0.15);
+  color: #7c5cce;
+  background: linear-gradient(135deg, rgba(124, 92, 206, 0.12) 0%, rgba(155, 127, 219, 0.08) 100%);
+  border: 1px solid rgba(124, 92, 206, 0.25);
 }
 
 :host-context(.light-theme) .footer-since::before {
-  background: #1e40af;
+  background: #7c5cce;
 }
 
 /* Title - Light Theme */
 :host-context(.light-theme) .footer-title {
-  color: #1e293b;
+  color: #1a3a2e;
 }
 
 :host-context(.light-theme) .footer-title::after {
-  background: linear-gradient(90deg, #1e40af, #3b82f6);
+  background: linear-gradient(90deg, #7c5cce, #a78bfa);
 }
 
 /* Links - Light Theme */
 :host-context(.light-theme) .footer-links li a {
-  color: #4a4541;
+  color: #2d4a3e;
 }
 
 :host-context(.light-theme) .footer-links li a::before {
-  background: linear-gradient(90deg, #1e40af, #3b82f6);
+  background: linear-gradient(90deg, #7c5cce, #a78bfa);
 }
 
 :host-context(.light-theme) .footer-links li a:hover {
-  color: #1e40af;
+  color: #7c5cce;
 }
 
 /* Contact - Light Theme */
 :host-context(.light-theme) .footer-contact li {
-  color: #4a4541;
-  background: rgba(30, 64, 175, 0.02);
+  color: #2d4a3e;
+  background: rgba(124, 92, 206, 0.04);
 }
 
 :host-context(.light-theme) .footer-contact li:hover {
-  background: rgba(30, 64, 175, 0.06);
-  border-color: rgba(30, 64, 175, 0.15);
+  background: rgba(124, 92, 206, 0.08);
+  border-color: rgba(124, 92, 206, 0.2);
 }
 
 :host-context(.light-theme) .footer-contact li svg {
-  color: #1e40af;
+  color: #7c5cce;
 }
 
 :host-context(.light-theme) .footer-contact li:hover svg {
-  color: #1e3a8a;
+  color: #6244b8;
 }
 
 :host-context(.light-theme) .footer-contact li span {
-  color: #4a4541;
+  color: #2d4a3e;
 }
 
 :host-context(.light-theme) .footer-contact li:hover span {
-  color: #1e293b;
+  color: #1a3a2e;
 }
 
 :host-context(.light-theme) .footer-contact li a {
-  color: #4a4541;
+  color: #2d4a3e;
 }
 
 :host-context(.light-theme) .footer-contact li:hover a {
-  color: #1e40af;
+  color: #7c5cce;
 }
 
 :host-context(.light-theme) .phone-separator {
-  color: #d9d2c7;
+  color: #c8d9cf;
 }
 
 /* Copyright - Light Theme */
 :host-context(.light-theme) .footer-copyright {
-  color: #6b6560;
-  background: rgba(30, 64, 175, 0.04);
-  border: 1px solid rgba(232, 226, 217, 0.8);
+  color: #5a7368;
+  background: rgba(124, 92, 206, 0.06);
+  border: 1px solid rgba(216, 228, 220, 0.8);
 }
