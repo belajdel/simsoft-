@@ -7,6 +7,7 @@ interface Partner {
   logo: string;
   keepColors?: boolean;
   isGiant?: boolean;
+  scale?: number;
 }
 
 @Component({
@@ -37,24 +38,24 @@ export class Partners {
 
     { name: 'Commune Nabeul', logo: '/References/communenabeul.png', keepColors: true },
     { name: 'CoProPha', logo: '/References/coProPha.png', keepColors: true },
-    { name: 'CTM', logo: '/References/ctm.png', keepColors: true, isGiant: true },
+    { name: 'CTM', logo: '/References/ctm.png', keepColors: true, isGiant: true, scale: 2.1 },
     { name: 'El Jam', logo: '/References/eljam.png', keepColors: true },
-    { name: 'Falcon Inter', logo: '/References/falcon-inter.png', keepColors: true, isGiant: true },
+    { name: 'Falcon Inter', logo: '/References/falcon-inter.png', keepColors: true, isGiant: true, scale: 2.2 },
     { name: 'Gravic', logo: '/References/gravic.png', keepColors: true },
     { name: 'Linde', logo: '/References/linde.png', keepColors: true },
-    { name: 'STE MRASI Frères', logo: '/References/LOGO-STE-MRASI-Fréres.svg', isGiant: true },
+    { name: 'STE MRASI Frères', logo: '/References/LOGO-STE-MRASI-Fréres.svg', isGiant: true, scale: 2.2 },
     { name: 'Mabrouka', logo: '/References/mabrouka.png' },
     { name: 'Municipalité Rouad', logo: '/References/municipalité_rouad.png', keepColors: true },
     { name: 'Newbox', logo: '/References/newbox.png', keepColors: true },
-    { name: 'SMTT', logo: '/References/SMTT.png', isGiant: true, keepColors: true },
-    { name: 'SNTT Tataouine', logo: '/References/société-SNTT-tataouine.jpg', keepColors: true, isGiant: true },
+    { name: 'SMTT', logo: '/References/SMTT.png', isGiant: true, keepColors: true, scale: 2.2 },
+    { name: 'SNTT Tataouine', logo: '/References/société-SNTT-tataouine.jpg', keepColors: true, isGiant: true, scale: 2.2 },
     { name: 'SRT Kef', logo: '/References/srtKef.png', keepColors: true },
     { name: 'SRT Sud', logo: '/References/srtsud.png' },
     { name: 'Téléchargement', logo: '/References/téléchargement-2.png', keepColors: true },
-    { name: 'Thapsus Voyage', logo: '/References/thapsusVoyage.png', isGiant: true, keepColors: true },
-    { name: 'TIS', logo: '/References/TIS_Resize.png', isGiant: true, keepColors: true },
-    { name: 'VIT', logo: '/References/vit.png', keepColors: true, isGiant: true },
-    { name: 'Watts', logo: '/References/watts-1.png', isGiant: true }
+    { name: 'Thapsus Voyage', logo: '/References/thapsusVoyage.png', isGiant: true, keepColors: true, scale: 2.2 },
+    { name: 'TIS', logo: '/References/TIS_Resize.png', isGiant: true, keepColors: true, scale: 1.6 },
+    { name: 'VIT', logo: '/References/vit.png', keepColors: true, isGiant: true, scale: 2.2 },
+    { name: 'Watts', logo: '/References/watts-1.png', scale: 2.2 }
   ];
 
   // Computed property for transform value (optional, can use inline template)

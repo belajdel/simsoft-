@@ -173,7 +173,7 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2;
   position: relative;
-  transform: scale(1.15);
+  transform: scale(var(--logo-scale, 1.15));
 }
 
 :host-context(.light-theme) .partner-logo {
@@ -203,111 +203,41 @@
   height: 100%;
   max-width: none;
   max-height: none;
-  transform: scale(2.2);
   object-fit: contain;
 }
 
 .partner-card:hover .partner-logo {
   filter: brightness(0) invert(1) opacity(1);
-  transform: scale(1);
+  transform: scale(var(--logo-hover-scale, 1.09));
 }
 
-/* Specific Standard Giant Logo fine-tuning */
-.logo-tis {
-  transform: scale(1.6);
-}
-
-.partner-card:hover .logo-tis {
-  transform: scale(1.4);
-}
-
-.logo-smtt {
-  transform: scale(2.2);
-}
-
-.partner-card:hover .logo-smtt {
-  transform: scale(2.0);
-}
-
-.logo-sntt-tataouine {
-  transform: scale(2.2);
-}
-
-.partner-card:hover .logo-sntt-tataouine {
-  transform: scale(2.0);
-}
-
-.logo-ctm {
-  transform: scale(2.2);
-}
-
-.partner-card:hover .logo-ctm {
-  transform: scale(2.0);
-}
-
-.logo-falcon-inter {
-  transform: scale(2.2);
-}
-
-.partner-card:hover .logo-falcon-inter {
-  transform: scale(2.0);
-}
-
-.logo-ste-mrasi-frères {
-  transform: scale(2.2);
-}
-
-.partner-card:hover .logo-ste-mrasi-frères {
-  transform: scale(2.0);
-}
-
+/* Specific Standard Giant Logo fine-tuning removed - controlled via TS */
 .logo-thapsus-voyage {
   width: 80% !important;
   height: 70% !important;
-  transform: scale(0.4);
-}
-
-.partner-card:hover .logo-thapsus-voyage {
-  transform: scale(0.35);
-}
-
-.logo-vit {
-  transform: scale(2.2);
-}
-
-.partner-card:hover .logo-vit {
-  transform: scale(2.0);
-}
-
-.logo-watts {
-  transform: scale(2.2);
-}
-
-.partner-card:hover .logo-watts {
-  transform: scale(2.0);
 }
 
 
 .partner-card:hover .partner-logo.keep-colors {
   filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
   opacity: 1;
-  transform: scale(1.05);
+  transform: scale(var(--logo-hover-scale, 1.09));
 }
 
 .partner-card:hover .partner-logo.white-logo {
   filter: grayscale(1) invert(1) brightness(2.5) contrast(1.2) drop-shadow(0 0 4px rgba(255, 255, 255, 0.4));
   opacity: 1;
-  transform: scale(1.05);
+  transform: scale(var(--logo-hover-scale, 1.09));
 }
 
 :host-context(.light-theme) .partner-card:hover .partner-logo {
   filter: grayscale(0) brightness(1.1) opacity(1);
-  transform: scale(1);
+  transform: scale(var(--logo-scale, 1.15));
 }
 
 :host-context(.light-theme) .partner-card:hover .partner-logo.keep-colors {
   filter: none;
-  transform: scale(1.1);
+  transform: scale(var(--logo-hover-scale, 1.09));
 }
 
 .partner-hover-effect {

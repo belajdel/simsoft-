@@ -26,6 +26,8 @@
               <div class="partner-logo-wrapper">
                 <div class="logo-background"></div>
                 <img [src]="partner.logo" [alt]="partner.name" class="partner-logo"
+                  [style.--logo-scale]="partner.scale || 1.15"
+                  [style.--logo-hover-scale]="(partner.scale || 1.15) * 0.95"
                   [class.white-logo]="!partner.keepColors && (partner.logo.includes('LOGO-STE-MRASI-Fréres') || partner.logo.includes('AF-beton'))"
                   [class.keep-colors]="partner.keepColors" [class.giant-logo]="partner.isGiant"
                   [class]="'logo-' + partner.name.toLowerCase().split(' ').join('-').split('(').join('').split(')').join('').split('.').join('')"
