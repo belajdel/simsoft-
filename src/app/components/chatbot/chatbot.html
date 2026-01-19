@@ -30,18 +30,21 @@
         </div>
 
         <div class="quick-actions">
-            <button class="quick-btn" (click)="sendQuickMessage('Qu\'est-ce que Divalto ?')">Divalto</button>
-            <button class="quick-btn" (click)="sendQuickMessage('Prix et devis')">Devis</button>
-            <button class="quick-btn" (click)="sendQuickMessage('Contact')">Contact</button>
+            <button class="quick-btn" (click)="sendQuickMessage(quickMsgDivalto())">Divalto</button>
+            <button class="quick-btn" (click)="sendQuickMessage(quickMsgQuote())">{{ languageService.language() === 'fr'
+                ? 'Devis' : 'Quote' }}</button>
+            <button class="quick-btn" (click)="sendQuickMessage(quickMsgContact())">Contact</button>
         </div>
 
         <div class="chat-input">
             <input type="text" [(ngModel)]="userMessage" (keyup.enter)="sendMessage()"
-                placeholder="Écrivez votre message..." [disabled]="false">
+                [placeholder]="chatbotPlaceholder()" [disabled]="false">
             <button (click)="sendMessage()" [disabled]="!userMessage.trim()">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
                 </svg>
             </button>
         </div>

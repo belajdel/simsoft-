@@ -126,7 +126,7 @@ export class SearchComponent {
       document.addEventListener('click', handleClickOutside);
       return () => document.removeEventListener('click', handleClickOutside);
     }
-    return () => {};
+    return () => { };
   });
 
   onInputFocus() {
@@ -184,10 +184,11 @@ export class SearchComponent {
   }
 
   getResultTypeLabel(type: string): string {
+    const isFr = this.languageService.language() === 'fr';
     const labels = {
-      product: 'Product',
-      blog: 'Article',
-      page: 'Page'
+      product: isFr ? 'Produit' : 'Product',
+      blog: isFr ? 'Article' : 'Blog post',
+      page: isFr ? 'Page' : 'Page'
     };
     return labels[type as keyof typeof labels] || type;
   }

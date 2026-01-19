@@ -1,16 +1,16 @@
 <section class="partners" id="references">
   <div class="partners-container">
     <div class="section-header">
-      <span class="section-label">Nos Références</span>
-      <h2 class="section-title">Ils Nous Font Confiance</h2>
+      <span class="section-label">{{ title() }}</span>
+      <h2 class="section-title">{{ subtitle() }}</h2>
       <p class="section-description">
-        Des entreprises de renom qui nous font confiance pour leurs solutions technologiques
+        {{ description() }}
       </p>
     </div>
 
     <div class="carousel-wrapper" *ngIf="partners.length > 0">
       <button class="carousel-button carousel-button-prev" (click)="previous()" [disabled]="!canGoPrevious()"
-        aria-label="Précédent">
+        [attr.aria-label]="languageService.translate('previous')">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round" />
@@ -35,7 +35,7 @@
       </div>
 
       <button class="carousel-button carousel-button-next" (click)="next()" [disabled]="!canGoNext()"
-        aria-label="Suivant">
+        [attr.aria-label]="languageService.translate('next')">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round" />

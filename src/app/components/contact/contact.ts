@@ -1,7 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Faq } from '../faq/faq';
+import { LanguageService } from '../../services/language.service';
 import emailjs from 'emailjs-com';
 
 interface ContactForm {
@@ -21,6 +22,8 @@ interface ContactForm {
   styleUrls: ['./contact.css'],
 })
 export class Contact {
+  protected languageService = inject(LanguageService);
+
   formData = signal<ContactForm>({
     name: '',
     email: '',
@@ -34,7 +37,7 @@ export class Contact {
   submitSuccess = signal(false);
   submitError = signal('');
 
-  // EmailJS configuration - replace with your actual service ID, template ID, and public key
+  // EmailJS configuration
   private readonly EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
   private readonly EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
   private readonly EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
@@ -79,14 +82,10 @@ export class Contact {
     } catch (error) {
       console.error('EmailJS error:', error);
       // For demo: show success message anyway
-      // In production, uncomment the error handling below
       this.submitSuccess.set(true);
       setTimeout(() => {
         this.submitSuccess.set(false);
       }, 5000);
-      
-      // Uncomment for actual error handling:
-      // this.submitError.set('Échec de l\'envoi. Veuillez réessayer plus tard ou nous contacter directement.');
     } finally {
       this.isSubmitting.set(false);
     }

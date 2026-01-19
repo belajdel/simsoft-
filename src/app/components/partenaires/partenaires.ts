@@ -1,6 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '../../services/theme.service';
+import { LanguageService } from '../../services/language.service';
 
 interface Partner {
   name: string;
@@ -16,6 +17,11 @@ interface Partner {
 })
 export class Partenaires {
   themeService = inject(ThemeService);
+  private languageService = inject(LanguageService);
+
+  title = computed(() => this.languageService.translate('partners_title'));
+  subtitle = computed(() => this.languageService.translate('partners_subtitle'));
+  description = computed(() => this.languageService.translate('partners_description'));
 
   partners: Partner[] = [
     { name: 'Divalto', logo: '/Partenaires/Divalto.webp' },

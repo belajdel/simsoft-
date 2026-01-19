@@ -14,7 +14,7 @@ import { ThemeService } from '../../services/theme.service';
   styleUrl: './header.css',
 })
 export class Header {
-  private languageService = inject(LanguageService);
+  public languageService = inject(LanguageService);
   private themeService = inject(ThemeService);
 
   isScrolled = signal(false);
@@ -31,8 +31,8 @@ export class Header {
 
   // Logo based on theme
   logoPath = computed(() => {
-    return this.themeService.theme() === 'light' 
-      ? '/Logo_Black.png' 
+    return this.themeService.theme() === 'light'
+      ? '/Logo_Black.png'
       : '/Logo_white.png';
   });
 

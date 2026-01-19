@@ -30,7 +30,7 @@ export class Products implements AfterViewInit, OnDestroy {
   private currentPage = signal(1);
   readonly isLoading = signal(false);
   readonly hasMoreItems = signal(true);
-  private selectedCategory = signal<string>('all');
+  protected selectedCategory = signal<string>('all');
 
   // View children for scroll detection
   private container = viewChild<ElementRef>('productsContainer');
@@ -38,9 +38,21 @@ export class Products implements AfterViewInit, OnDestroy {
   // Filtered products
   filteredProducts = computed(() => {
     const all = this.allProducts();
-    const category = this.selectedCategory();
-    if (category === 'all') return all;
-    return all.filter(product => product.category === category);
+    const categoryId = this.selectedCategory();
+    if (categoryId === 'all') return all;
+
+    // Map of ID to localized strings
+    const categoryMap: Record<string, string[]> = {
+      'ERP': ['ERP'],
+      'GMAO': ['GMAO'],
+      'SECURITY': ['Sécurité', 'Security'],
+      'CLOUD': ['Cloud'],
+      'DEV': ['Développement', 'Development'],
+      'ANALYTICS': ['Analytics']
+    };
+
+    const targetCategories = categoryMap[categoryId] || [categoryId];
+    return all.filter(product => targetCategories.includes(product.category));
   });
 
   // Computed displayed products

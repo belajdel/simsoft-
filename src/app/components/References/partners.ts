@@ -1,5 +1,6 @@
-import { Component, signal, HostListener, computed } from '@angular/core';
+import { Component, signal, HostListener, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LanguageService } from '../../services/language.service';
 
 interface Partner {
   name: string;
@@ -16,6 +17,11 @@ interface Partner {
 export class Partners {
   currentIndex = signal(0);
   itemsPerView = signal(4);
+  protected languageService = inject(LanguageService);
+
+  title = computed(() => this.languageService.translate('references_title'));
+  subtitle = computed(() => this.languageService.translate('references_subtitle'));
+  description = computed(() => this.languageService.translate('references_description'));
 
   partners: Partner[] = [
     { name: 'CGPR', logo: '/References/LOGO-CGPR.png' },

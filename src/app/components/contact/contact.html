@@ -1,11 +1,10 @@
 <section class="contact" id="contact">
   <div class="contact-container">
     <div class="section-header">
-      <span class="section-label">Contact</span>
-      <h2 class="section-title">Contactez-Nous</h2>
+      <span class="section-label">{{ languageService.translate('contact_subtitle') }}</span>
+      <h2 class="section-title">{{ languageService.translate('contact_title') }}</h2>
       <p class="section-description">
-        Notre équipe est à votre disposition pour répondre à toutes vos questions et vous accompagner dans vos projets
-        digitaux.
+        {{ languageService.translate('contact_description') }}
       </p>
     </div>
 
@@ -22,7 +21,7 @@
               </svg>
             </div>
             <div>
-              <h3>Email</h3>
+              <h3>{{ languageService.translate('contact_email_label') }}</h3>
               <a href="mailto:commercial@simsoft.com.tn">commercial&#64;simsoft.com.tn</a>
             </div>
           </div>
@@ -36,7 +35,7 @@
               </svg>
             </div>
             <div>
-              <h3>Téléphone</h3>
+              <h3>{{ languageService.translate('contact_phone_label') }}</h3>
               <a href="tel:+21673213688">+216 73 21 36 88</a>
               <a href="tel:+21650520805">+216 50 52 08 05</a>
             </div>
@@ -54,7 +53,7 @@
               </svg>
             </div>
             <div>
-              <h3>Adresse</h3>
+              <h3>{{ languageService.translate('contact_address_label') }}</h3>
               <p>5 Avenue Léopold Senghor<br>Espace Ayechi<br>4000 Sousse – Tunisie</p>
             </div>
           </div>
@@ -73,44 +72,48 @@
         <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
           <div class="form-row">
             <div class="form-group">
-              <label for="name">Nom complet *</label>
+              <label for="name">{{ languageService.translate('contact_name') }} *</label>
               <input type="text" id="name" [value]="formData().name"
-                (input)="updateField('name', $any($event.target).value)" required placeholder="Votre nom" />
+                (input)="updateField('name', $any($event.target).value)" required
+                [placeholder]="languageService.translate('contact_placeholder_name')" />
             </div>
 
             <div class="form-group">
-              <label for="email">Email *</label>
+              <label for="email">{{ languageService.translate('contact_email') }} *</label>
               <input type="email" id="email" [value]="formData().email"
-                (input)="updateField('email', $any($event.target).value)" required placeholder="votre@email.com" />
+                (input)="updateField('email', $any($event.target).value)" required
+                [placeholder]="languageService.translate('contact_placeholder_email')" />
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="phone">Téléphone</label>
+              <label for="phone">{{ languageService.translate('contact_phone') }}</label>
               <input type="tel" id="phone" [value]="formData().phone"
-                (input)="updateField('phone', $any($event.target).value)" placeholder="+216 XX XXX XXX" />
+                (input)="updateField('phone', $any($event.target).value)"
+                [placeholder]="languageService.translate('contact_placeholder_phone')" />
             </div>
 
             <div class="form-group">
-              <label for="company">Entreprise</label>
+              <label for="company">{{ languageService.translate('contact_company') }}</label>
               <input type="text" id="company" [value]="formData().company"
-                (input)="updateField('company', $any($event.target).value)" placeholder="Nom de votre entreprise" />
+                (input)="updateField('company', $any($event.target).value)"
+                [placeholder]="languageService.translate('contact_placeholder_company')" />
             </div>
           </div>
 
           <div class="form-group form-group-full">
-            <label for="subject">Sujet *</label>
+            <label for="subject">{{ languageService.translate('contact_subject') }} *</label>
             <input type="text" id="subject" [value]="formData().subject"
               (input)="updateField('subject', $any($event.target).value)" required
-              placeholder="Sujet de votre message" />
+              [placeholder]="languageService.translate('contact_placeholder_subject')" />
           </div>
 
           <div class="form-group form-group-full">
-            <label for="message">Message *</label>
+            <label for="message">{{ languageService.translate('contact_message') }} *</label>
             <textarea id="message" [value]="formData().message"
               (input)="updateField('message', $any($event.target).value)" required rows="6"
-              placeholder="Décrivez votre projet ou vos besoins..."></textarea>
+              [placeholder]="languageService.translate('contact_placeholder_message')"></textarea>
           </div>
 
           @if (submitSuccess()) {
@@ -119,7 +122,7 @@
               <path d="M16.6667 5L7.50002 14.1667L3.33335 10" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            Votre message a été envoyé avec succès !
+            {{ languageService.translate('contact_success') }}
           </div>
           }
 
@@ -132,9 +135,9 @@
           <button type="submit" class="submit-button" [disabled]="isSubmitting()">
             @if (isSubmitting()) {
             <span class="spinner"></span>
-            Envoi en cours...
+            {{ languageService.translate('contact_sending') }}
             } @else {
-            Envoyer le message
+            {{ languageService.translate('contact_send') }}
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round" />

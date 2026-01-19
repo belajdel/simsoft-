@@ -19,7 +19,7 @@
       <app-theme-switcher></app-theme-switcher>
 
       <button class="menu-toggle" (click)="toggleMenu()"
-        [attr.aria-label]="isMenuOpen() ? 'Fermer le menu' : 'Ouvrir le menu'">
+        [attr.aria-label]="isMenuOpen() ? languageService.translate('menu_close') : languageService.translate('menu_open')">
         <span class="menu-icon" [class.active]="isMenuOpen()">
           <span></span>
           <span></span>

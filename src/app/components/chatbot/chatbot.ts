@@ -2,7 +2,8 @@ import { Component, inject, viewChild, AfterViewChecked, ChangeDetectorRef } fro
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ChatbotService } from '../../services/chatbot.service';
-import { ElementRef } from '@angular/core';
+import { LanguageService } from '../../services/language.service';
+import { ElementRef, computed } from '@angular/core';
 
 @Component({
     selector: 'app-chatbot',
@@ -13,10 +14,18 @@ import { ElementRef } from '@angular/core';
 })
 export class Chatbot implements AfterViewChecked {
     private chatbotService = inject(ChatbotService);
+    protected languageService = inject(LanguageService);
     private cdr = inject(ChangeDetectorRef);
 
     messages = this.chatbotService.messages;
     isOpen = this.chatbotService.isOpen;
+
+    // Translations
+    chatbotPlaceholder = computed(() => this.languageService.translate('chatbot_placeholder'));
+
+    quickMsgDivalto = computed(() => this.languageService.language() === 'fr' ? 'Qu\'est-ce que Divalto ?' : 'What is Divalto?');
+    quickMsgQuote = computed(() => this.languageService.language() === 'fr' ? 'Prix et devis' : 'Price and Quote');
+    quickMsgContact = computed(() => this.languageService.language() === 'fr' ? 'Contact' : 'Contact');
 
     userMessage = '';
     messagesContainer = viewChild<ElementRef>('messagesContainer');
