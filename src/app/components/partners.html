@@ -28,8 +28,8 @@
                 <img [src]="partner.logo" [alt]="partner.name" class="partner-logo"
                   [class.white-logo]="!partner.keepColors && (partner.logo.includes('LOGO-STE-MRASI-Fréres') || partner.logo.includes('AF-beton'))"
                   [class.keep-colors]="partner.keepColors" [class.giant-logo]="partner.isGiant"
-                  [class.tis-logo]="partner.logo.includes('TIS')" loading="lazy"
-                  (error)="$event.target.src='/References/logo-1.png'" />
+                  [class]="'logo-' + partner.name.toLowerCase().split(' ').join('-').split('(').join('').split(')').join('').split('.').join('')"
+                  loading="lazy" (error)="$event.target.src='/References/logo-1.png'" />
               </div>
               <div class="partner-hover-effect"></div>
             </div>
