@@ -5,6 +5,8 @@ import { LanguageService } from '../../services/language.service';
 interface Partner {
   name: string;
   logo: string;
+  keepColors?: boolean;
+  isGiant?: boolean;
 }
 
 @Component({
@@ -24,34 +26,35 @@ export class Partners {
   description = computed(() => this.languageService.translate('references_description'));
 
   partners: Partner[] = [
-    { name: 'CGPR', logo: '/References/LOGO-CGPR.png' },
-    { name: 'AF-TR', logo: '/References/AF-TR.png' },
-    { name: 'Assenceur Zouali', logo: '/References/assenceur-zouali.png' },
-    { name: 'ATEX', logo: '/References/atex.png' },
-    { name: 'AF-Beton', logo: '/References/AF-Beton.png' },
-    { name: 'CCMM', logo: '/References/CCMM.png' },
+    { name: 'CGPR', logo: '/References/LOGO-CGPR.png', keepColors: true },
+    { name: 'AF-TR', logo: '/References/AF-TR.png', keepColors: true },
+
+    { name: 'Assenceur Zouali', logo: '/References/assenceur-zouali.png', keepColors: true },
+    { name: 'ATEX', logo: '/References/atex.png', keepColors: true },
+    { name: 'AF-Beton', logo: '/References/AF-beton.svg', keepColors: true },
+    { name: 'CCMM', logo: '/References/CCMM.png', keepColors: true },
     { name: 'Chahia', logo: '/References/chahia.png' },
-    { name: 'CNP', logo: '/References/cnp.png' },
-    { name: 'Commune Nabeul', logo: '/References/communenabeul.png' },
-    { name: 'CoProPha', logo: '/References/coProPha.png' },
-    { name: 'CTM', logo: '/References/ctm.png' },
-    { name: 'El Jam', logo: '/References/eljam.png' },
-    { name: 'Falcon Inter', logo: '/References/falcon-inter.png' },
-    { name: 'Gravic', logo: '/References/gravic.png' },
-    { name: 'Linde', logo: '/References/linde.png' },
-    { name: 'STE MRASI Frères', logo: '/References/LOGO-STE-MRASI-Fréres.png' },
+
+    { name: 'Commune Nabeul', logo: '/References/communenabeul.png', keepColors: true },
+    { name: 'CoProPha', logo: '/References/coProPha.png', keepColors: true },
+    { name: 'CTM', logo: '/References/ctm.png', keepColors: true, isGiant: true },
+    { name: 'El Jam', logo: '/References/eljam.png', keepColors: true },
+    { name: 'Falcon Inter', logo: '/References/falcon-inter.png', keepColors: true, isGiant: true },
+    { name: 'Gravic', logo: '/References/gravic.png', keepColors: true },
+    { name: 'Linde', logo: '/References/linde.png', keepColors: true },
+    { name: 'STE MRASI Frères', logo: '/References/LOGO-STE-MRASI-Fréres.svg', isGiant: true },
     { name: 'Mabrouka', logo: '/References/mabrouka.png' },
-    { name: 'Municipalité Rouad', logo: '/References/municipalité_rouad.png' },
-    { name: 'Newbox', logo: '/References/newbox.png' },
-    { name: 'SMTT', logo: '/References/SMTT.png' },
-    { name: 'SNTT Tataouine', logo: '/References/société-SNTT-tataouine.jpg' },
-    { name: 'SRT Kef', logo: '/References/srtKef.png' },
+    { name: 'Municipalité Rouad', logo: '/References/municipalité_rouad.png', keepColors: true },
+    { name: 'Newbox', logo: '/References/newbox.png', keepColors: true },
+    { name: 'SMTT', logo: '/References/SMTT.png', isGiant: true, keepColors: true },
+    { name: 'SNTT Tataouine', logo: '/References/société-SNTT-tataouine.jpg', keepColors: true, isGiant: true },
+    { name: 'SRT Kef', logo: '/References/srtKef.png', keepColors: true },
     { name: 'SRT Sud', logo: '/References/srtsud.png' },
-    { name: 'Téléchargement', logo: '/References/téléchargement-2.png' },
-    { name: 'Thapsus Voyage', logo: '/References/thapsusVoyage.png' },
-    { name: 'TIS', logo: '/References/TIS_Resize.png' },
-    { name: 'VIT', logo: '/References/vit.png' },
-    { name: 'Watts', logo: '/References/watts-1.png' }
+    { name: 'Téléchargement', logo: '/References/téléchargement-2.png', keepColors: true },
+    { name: 'Thapsus Voyage', logo: '/References/thapsusVoyage.png', isGiant: true, keepColors: true },
+    { name: 'TIS', logo: '/References/TIS_Resize.png', isGiant: true, keepColors: true },
+    { name: 'VIT', logo: '/References/vit.png', keepColors: true, isGiant: true },
+    { name: 'Watts', logo: '/References/watts-1.png', isGiant: true }
   ];
 
   // Computed property for transform value (optional, can use inline template)

@@ -39,6 +39,14 @@ export interface TranslationKeys {
   products_empty_title: string;
   products_empty_desc: string;
   products_contact: string;
+  product_about: string;
+  product_features: string;
+  product_related: string;
+  product_request_demo: string;
+  product_not_found: string;
+  product_not_found_desc: string;
+  product_back_to_list: string;
+  product_view_360: string;
 
   // Contact
   contact_title: string;
@@ -284,7 +292,15 @@ export class LanguageService {
       next: 'Suivant',
       menu_open: 'Ouvrir le menu',
       menu_close: 'Fermer le menu',
-      all_rights_reserved: 'Tous droits réservés.'
+      all_rights_reserved: 'Tous droits réservés.',
+      product_about: 'À propos de',
+      product_features: 'Fonctionnalités Clés',
+      product_related: 'Produits Similaires',
+      product_request_demo: 'Demander une démo',
+      product_not_found: 'Produit introuvable',
+      product_not_found_desc: 'Le produit que vous recherchez n\'existe pas ou a été déplacé.',
+      product_back_to_list: 'Retour aux produits',
+      product_view_360: 'Vue 360° Interactive'
     },
     en: {
       // Navigation
@@ -418,8 +434,16 @@ export class LanguageService {
       previous: 'Previous',
       next: 'Next',
       menu_open: 'Open menu',
-      menu_close: 'Close menu',
-      all_rights_reserved: 'All rights reserved.'
+      menu_close: 'Close Menu',
+      all_rights_reserved: 'All rights reserved.',
+      product_about: 'About',
+      product_features: 'Key Features',
+      product_related: 'Related Products',
+      product_request_demo: 'Request a Demo',
+      product_not_found: 'Product Not Found',
+      product_not_found_desc: 'The product you are looking for does not exist or has been moved.',
+      product_back_to_list: 'Back to Products',
+      product_view_360: 'Interactive 360° View'
     },
   };
 

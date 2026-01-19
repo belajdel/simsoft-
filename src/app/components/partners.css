@@ -104,7 +104,7 @@
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  padding: 2rem;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -165,18 +165,84 @@
 .partner-logo {
   max-width: 100%;
   max-height: 100%;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  filter: grayscale(0.4) brightness(0.95);
+  /* Default (Dark Theme) state: White monochrome for readability */
+  filter: brightness(0) invert(1) opacity(0.7);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2;
   position: relative;
+  transform: scale(1.15);
+}
+
+:host-context(.light-theme) .partner-logo {
+  /* Light Theme state: Original colors with slight grayscale/dullness for consistency */
+  filter: grayscale(0.2) brightness(0.9) opacity(0.8);
+}
+
+.partner-logo.white-logo {
+  /* Enhanced visibility for multi-colored SVGs converted to white while preserving detail */
+  opacity: 0.9;
+  filter: grayscale(1) invert(1) brightness(2) contrast(1.1) drop-shadow(0 0 1px rgba(255, 255, 255, 0.2));
+}
+
+.partner-logo.keep-colors {
+  filter: none;
+  opacity: 0.85;
+}
+
+:host-context(.light-theme) .partner-logo.keep-colors {
+  filter: none;
+  opacity: 1;
+}
+
+/* Base Hover States */
+.partner-logo.giant-logo {
+  width: 180%;
+  height: 180%;
+  max-width: none;
+  max-height: none;
+  transform: scale(3);
 }
 
 .partner-card:hover .partner-logo {
-  filter: grayscale(0) brightness(1.1);
-  transform: scale(1.08);
+  filter: brightness(0) invert(1) opacity(1);
+  transform: scale(1.25);
+}
+
+.partner-card:hover .partner-logo.giant-logo {
+  transform: scale(2.4);
+}
+
+.partner-logo.giant-logo.tis-logo {
+  transform: scale(1.6);
+}
+
+.partner-card:hover .partner-logo.giant-logo.tis-logo {
+  transform: scale(1.8);
+}
+
+.partner-card:hover .partner-logo.keep-colors {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+  opacity: 1;
+  transform: scale(1.25);
+}
+
+.partner-card:hover .partner-logo.white-logo {
+  filter: grayscale(1) invert(1) brightness(2.5) contrast(1.2) drop-shadow(0 0 4px rgba(255, 255, 255, 0.4));
+  opacity: 1;
+  transform: scale(1.25);
+}
+
+:host-context(.light-theme) .partner-card:hover .partner-logo {
+  filter: grayscale(0) brightness(1.1) opacity(1);
+  transform: scale(1.25);
+}
+
+:host-context(.light-theme) .partner-card:hover .partner-logo.keep-colors {
+  filter: none;
+  transform: scale(1.25);
 }
 
 .partner-hover-effect {
@@ -196,11 +262,14 @@
   opacity: 1;
 }
 
+/* Removed white-logo styles as it's now global */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -263,7 +332,7 @@
     --items-visible: 3;
     --carousel-gap: 1.5rem;
   }
-  
+
   .partner-card {
     height: 220px;
   }
@@ -332,7 +401,7 @@
   .partner-card {
     height: 160px;
   }
-  
+
   /* For single item view, adjust container padding */
   .carousel-container {
     padding: 0;

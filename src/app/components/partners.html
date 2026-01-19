@@ -18,14 +18,17 @@
       </button>
 
       <div class="carousel-container">
-        <div class="carousel-track" 
-             [style.transform]="'translateX(calc(-' + currentIndex() + ' * ((100% + var(--carousel-gap)) / ' + itemsPerView() + ')))'">
+        <div class="carousel-track"
+          [style.transform]="'translateX(calc(-' + currentIndex() + ' * ((100% + var(--carousel-gap)) / ' + itemsPerView() + ')))'">
           <div class="partner-card" *ngFor="let partner of partners; let i = index"
             [style.animation-delay]="(i * 0.05) + 's'">
             <div class="partner-card-inner">
               <div class="partner-logo-wrapper">
                 <div class="logo-background"></div>
-                <img [src]="partner.logo" [alt]="partner.name" class="partner-logo" loading="lazy"
+                <img [src]="partner.logo" [alt]="partner.name" class="partner-logo"
+                  [class.white-logo]="!partner.keepColors && (partner.logo.includes('LOGO-STE-MRASI-Fréres') || partner.logo.includes('AF-beton'))"
+                  [class.keep-colors]="partner.keepColors" [class.giant-logo]="partner.isGiant"
+                  [class.tis-logo]="partner.logo.includes('TIS')" loading="lazy"
                   (error)="$event.target.src='/References/logo-1.png'" />
               </div>
               <div class="partner-hover-effect"></div>

@@ -1,5 +1,9 @@
 @if (product(); as p) {
-<app-breadcrumb [customItems]="[{ label: 'Produits', url: '/produits' }, { label: p.title, isActive: true }]"></app-breadcrumb>
+<app-breadcrumb [customItems]="[
+  { label: languageService.translate('nav_home'), url: '/' },
+  { label: languageService.translate('nav_products'), url: '/produits' }, 
+  { label: p.title, isActive: true }
+]"></app-breadcrumb>
 
 <div class="product-detail-container animate-fade-in-up">
   <div class="product-hero glass-panel">
@@ -23,41 +27,42 @@
             <div class="image-overlay">
               <button class="gallery-btn prev-btn" (click)="prevImage()" [disabled]="selectedImageIndex() === 0">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
                 </svg>
               </button>
-              <button class="gallery-btn next-btn" (click)="nextImage()" [disabled]="selectedImageIndex() === (p.images.length - 1)">
+              <button class="gallery-btn next-btn" (click)="nextImage()"
+                [disabled]="selectedImageIndex() === (p.images.length - 1)">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
                 </svg>
               </button>
             </div>
           </div>
           <div class="thumbnail-container">
             @for (image of p.images; track $index) {
-            <img [src]="image" [alt]="p.title + ' ' + ($index + 1)" 
-                 class="thumbnail" 
-                 [class.active]="selectedImageIndex() === $index"
-                 (click)="selectImage($index)" />
+            <img [src]="image" [alt]="p.title + ' ' + ($index + 1)" class="thumbnail"
+              [class.active]="selectedImageIndex() === $index" (click)="selectImage($index)" />
             }
           </div>
         </div>
         } @else {
         <div class="gallery-placeholder">
           <div class="gallery-icon-360">↻</div>
-          <p>Vue 360° Interactive</p>
+          <p>{{ languageService.translate('product_view_360') }}</p>
         </div>
         }
       </div>
 
       <div class="content-section description-section">
-        <h2>À propos de {{ p.title }}</h2>
+        <h2>{{ languageService.translate('product_about') }} {{ p.title }}</h2>
         <p class="long-description">{{ p.longDescription }}</p>
       </div>
     </div>
 
     <div class="content-section features-section">
-      <h3>Fonctionnalités Clés</h3>
+      <h3>{{ languageService.translate('product_features') }}</h3>
       <div class="features-grid">
         @for (feature of p.features; track feature) {
         <div class="feature-card glass-card">
@@ -71,7 +76,7 @@
     <!-- Related Products -->
     @if (relatedProducts().length > 0) {
     <div class="content-section related-section">
-      <h3>Produits Similaires</h3>
+      <h3>{{ languageService.translate('product_related') }}</h3>
       <div class="features-grid related-grid">
         @for (related of relatedProducts(); track related.id) {
         <a [routerLink]="['/produits', related.id]" class="feature-card glass-card related-card">
@@ -84,14 +89,14 @@
     }
 
     <div class="actions">
-      <a routerLink="/contact" class="contact-btn">Demander une démo</a>
+      <a routerLink="/contact" class="contact-btn">{{ languageService.translate('product_request_demo') }}</a>
     </div>
   </div>
 </div>
-} @else {
+@} @else {
 <div class="not-found">
-  <h2>Produit introuvable</h2>
-  <p>Le produit que vous recherchez n'existe pas ou a été déplacé.</p>
-  <a routerLink="/produits" class="back-btn">Retour aux produits</a>
+  <h2>{{ languageService.translate('product_not_found') }}</h2>
+  <p>{{ languageService.translate('product_not_found_desc') }}</p>
+  <a routerLink="/produits" class="back-btn">{{ languageService.translate('product_back_to_list') }}</a>
 </div>
 }

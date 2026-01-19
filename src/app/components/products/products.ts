@@ -44,11 +44,13 @@ export class Products implements AfterViewInit, OnDestroy {
     // Map of ID to localized strings
     const categoryMap: Record<string, string[]> = {
       'ERP': ['ERP'],
-      'GMAO': ['GMAO'],
+      'GMAO': ['GMAO', 'CMMS'],
       'SECURITY': ['Sécurité', 'Security'],
       'CLOUD': ['Cloud'],
       'DEV': ['Développement', 'Development'],
-      'ANALYTICS': ['Analytics']
+      'ANALYTICS': ['Analytics'],
+      'NETWORK': ['Réseau', 'Network'],
+      'DATABASE': ['Base de données', 'Database']
     };
 
     const targetCategories = categoryMap[categoryId] || [categoryId];

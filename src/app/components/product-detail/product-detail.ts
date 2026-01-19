@@ -1,8 +1,9 @@
-import { Component, inject, computed, input, signal, OnInit } from '@angular/core';
+import { Component, inject, computed, input, signal, OnInit, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import { ProductService } from '../../services/product.service';
+import { LanguageService } from '../../services/language.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 import { BreadcrumbComponent } from '../breadcrumb/breadcrumb';
@@ -22,11 +23,12 @@ export class ProductDetail implements OnInit {
   private analyticsService = inject(AnalyticsService);
   private sanitizer = inject(DomSanitizer);
   private productService = inject(ProductService);
-  
+  languageService = inject(LanguageService);
+
   // Try to use input from route binding first, fallback to route params
   routeId = input<string>('');
   private routeParams = toSignal(this.route.params);
-  
+
   productId = computed(() => {
     const inputId = this.routeId();
     if (inputId) return inputId;
@@ -47,29 +49,35 @@ export class ProductDetail implements OnInit {
     return p && p.images && p.images.length > 0 ? p.images[idx] : '';
   });
 
-  ngOnInit() {
-    // Set up SEO for the product page
-    const currentProduct = this.product();
-    if (currentProduct) {
-      this.seoService.updateMetaTags({
-        title: `${currentProduct.title} - SimSoft Technologies`,
-        description: currentProduct.description,
-        keywords: [
-          currentProduct.title,
-          currentProduct.category,
-          'SimSoft Technologies',
-          'Tunisie',
-          'logiciels',
-          'ERP',
-          'GMAO'
-        ].concat(currentProduct.features.slice(0, 3)),
-        type: 'product',
-        image: currentProduct.images?.[0] || '/Logo.png'
-      });
+  constructor() {
+    // Set up reactive SEO for the product page
+    effect(() => {
+      const currentProduct = this.product();
+      if (currentProduct) {
+        this.seoService.updateMetaTags({
+          title: `${currentProduct.title} - SimSoft Technologies`,
+          description: currentProduct.description,
+          keywords: [
+            currentProduct.title,
+            currentProduct.category,
+            'SimSoft Technologies',
+            'Tunisie',
+            'logiciels',
+            'ERP',
+            'GMAO'
+          ].concat(currentProduct.features.slice(0, 3)),
+          type: 'product',
+          image: currentProduct.images?.[0] || '/Logo.png'
+        });
 
-      // Track product view
-      this.analyticsService.trackProductView(currentProduct.id, currentProduct.title);
-    }
+        // Track product view (only once per product change)
+        this.analyticsService.trackProductView(currentProduct.id, currentProduct.title);
+      }
+    });
+  }
+
+  ngOnInit() {
+    // Effect handles SEO and tracking reactively
   }
 
   relatedProducts = computed(() => {
