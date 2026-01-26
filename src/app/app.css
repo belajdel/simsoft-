@@ -105,6 +105,12 @@ app-footer {
   z-index: 1;
 }
 
+main {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
 /* ========================================
    LIGHT THEME - App Background Overrides
    Soft Sage & Lavender Elegance
@@ -131,9 +137,12 @@ app-footer {
 }
 
 @keyframes lightBackgroundShift {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0% 0%, 100% 100%, 50% 50%;
   }
+
   50% {
     background-position: 100% 100%, 0% 0%, 50% 50%;
   }

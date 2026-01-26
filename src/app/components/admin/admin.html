@@ -1,0 +1,60 @@
+<div class="admin-container">
+    <h1>SimSoft Admin Panel</h1>
+
+    <!-- LOGIN SECTION -->
+    <div *ngIf="!isLoggedIn()" class="login-box">
+        <h2>Login</h2>
+        <div class="form-group">
+            <label>Username</label>
+            <input [(ngModel)]="username" type="text" placeholder="admin">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input [(ngModel)]="password" type="password" placeholder="admin123">
+        </div>
+        <p class="error" *ngIf="loginError">{{ loginError }}</p>
+        <button (click)="login()">Login</button>
+    </div>
+
+    <!-- DASHBOARD SECTION -->
+    <div *ngIf="isLoggedIn()" class="dashboard">
+        <div class="header">
+            <p>Welcome, Admin</p>
+            <button (click)="logout()" class="logout-btn">Logout</button>
+        </div>
+
+        <div class="content-editor">
+            <h3>Edit Website Content</h3>
+
+            <div class="section">
+                <h4>Hero Section</h4>
+                <div class="form-group">
+                    <label>Title</label>
+                    <input [(ngModel)]="content.hero.title" type="text">
+                </div>
+                <div class="form-group">
+                    <label>Subtitle</label>
+                    <input [(ngModel)]="content.hero.subtitle" type="text">
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>About Section</h4>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea [(ngModel)]="content.about.description" rows="5"></textarea>
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>Settings</h4>
+                <div class="form-group">
+                    <label>Contact Email Receiver</label>
+                    <input [(ngModel)]="content.contactEmail" type="text">
+                </div>
+            </div>
+
+            <button (click)="saveContent()" class="save-btn">Save Changes</button>
+        </div>
+    </div>
+</div>

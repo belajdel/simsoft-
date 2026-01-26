@@ -69,9 +69,9 @@ export class ProductService {
         en: ['Advanced commercial management', 'Integrated accounting', 'Real-time stock & logistics', 'Reporting & BI', 'Production management', 'Integrated CRM', 'Connected E-commerce', 'Multi-company interface']
       },
       images: [
-        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80'
+        'https://www.divalto.com/app/uploads/2022/10/ERP-IA-2-masonry-50-1-1200x702.png',
+        'https://www.assistanceplus.tn/wp-content/uploads/2020/10/divalto-infinity-demo-2.jpg',
+        'https://www.grenat-groupe.fr/images/Image/Image/ERP_divalto_Industry.png?1725616678447'
       ],
       category: { fr: 'ERP', en: 'ERP' },
       testimonials: []
@@ -116,9 +116,9 @@ export class ProductService {
         en: ['Intelligent scheduling', 'Predictive maintenance', 'Detailed cost management', 'Real-time tracking', 'Complete history', 'Automated reports', 'Mobile app', 'GPS integration']
       },
       images: [
-        'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80'
+        'https://media.licdn.com/dms/image/v2/D4E12AQEjx_v4UE1hJQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1725959749927?e=2147483647&v=beta&t=izOhzkSfExdnCkoluPe6OET5sljOqPqorI3KoB1qVFg',
+        'https://www.simsoft.com.tn/wp-content/uploads/2018/05/index-3-300x179.jpg',
+
       ],
       category: { fr: 'GMAO', en: 'CMMS' }
     },
@@ -139,9 +139,9 @@ export class ProductService {
         en: ['Next-generation firewall', 'Anti-ransomware protection', 'Application filtering', 'Secure VPN', 'Security Heartbeat', 'Detailed reports', 'Zero-touch deployment', 'Cloud management']
       },
       images: [
-        'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80'
+        'https://partnernews.sophos.com/en-us/wp-content/uploads/sites/3/2024/08/sophos-firewall-v21-control-center.png',
+        'https://www.avanet.com/assets/sophos-firewall-v20-widescreen-firewall-rules-1024x576.jpg',
+        'https://teklager.se/media/filer_public_thumbnails/filer_public/88/1b/881b8044-dbae-4694-91d1-288cda30e565/sophos_apu_admin_interface.png__1291x884_q85_subsampling-2.png'
       ],
       category: { fr: 'Sécurité', en: 'Security' }
     },
@@ -161,10 +161,10 @@ export class ProductService {
         fr: ['Protection anti-malware', 'Détection comportementale', 'Contrôle applicatif', 'Device Encryption', 'Web filtering', 'Remote lockdown', 'Endpoint detection', 'Zero Trust Network Access'],
         en: ['Anti-malware protection', 'Behavioral detection', 'Application control', 'Device Encryption', 'Web filtering', 'Remote lockdown', 'Endpoint detection', 'Zero Trust Network Access']
       },
-      images: [
-        'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80'
+images: [
+        'https://partnernews.sophos.com/en-us/wp-content/uploads/sites/3/2024/08/sophos-firewall-v21-control-center.png',
+        'https://www.avanet.com/assets/sophos-firewall-v20-widescreen-firewall-rules-1024x576.jpg',
+        'https://teklager.se/media/filer_public_thumbnails/filer_public/88/1b/881b8044-dbae-4694-91d1-288cda30e565/sophos_apu_admin_interface.png__1291x884_q85_subsampling-2.png'
       ],
       category: { fr: 'Sécurité', en: 'Security' }
     },
