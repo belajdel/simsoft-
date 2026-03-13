@@ -1,9 +1,9 @@
-import { Component, signal, computed, inject } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import { Faq } from '../faq/faq';
 import { LanguageService } from '../../services/language.service';
-import emailjs from 'emailjs-com';
 
 interface ContactForm {
   name: string;
@@ -23,6 +23,7 @@ interface ContactForm {
 })
 export class Contact {
   protected languageService = inject(LanguageService);
+  private http = inject(HttpClient);
 
   formData = signal<ContactForm>({
     name: '',
@@ -37,58 +38,47 @@ export class Contact {
   submitSuccess = signal(false);
   submitError = signal('');
 
-  // EmailJS configuration
-  private readonly EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
-  private readonly EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-  private readonly EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+  onSubmit() {
+    if (!this.formData().name || !this.formData().email || !this.formData().message) {
+      this.submitError.set('Name, email, and message are required.');
+      return;
+    }
 
-  async onSubmit() {
     this.isSubmitting.set(true);
     this.submitError.set('');
 
-    try {
-      const templateParams = {
-        from_name: this.formData().name,
-        from_email: this.formData().email,
-        phone: this.formData().phone || 'Non fourni',
-        company: this.formData().company || 'Non fourni',
-        subject: this.formData().subject,
-        message: this.formData().message,
-      };
+    const payload = {
+      name: this.formData().name,
+      email: this.formData().email,
+      phone: this.formData().phone,
+      company: this.formData().company,
+      subject: this.formData().subject,
+      message: this.formData().message,
+    };
 
-      await emailjs.send(
-        this.EMAILJS_SERVICE_ID,
-        this.EMAILJS_TEMPLATE_ID,
-        templateParams,
-        this.EMAILJS_PUBLIC_KEY
-      );
+    this.http.post('http://localhost:5000/api/contact', payload).subscribe({
+      next: () => {
+        this.submitSuccess.set(true);
+        this.formData.set({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          subject: '',
+          message: ''
+        });
 
-      this.submitSuccess.set(true);
-
-      // Reset form
-      this.formData.set({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        subject: '',
-        message: ''
-      });
-
-      // Hide success message after 5 seconds
-      setTimeout(() => {
-        this.submitSuccess.set(false);
-      }, 5000);
-    } catch (error) {
-      console.error('EmailJS error:', error);
-      // For demo: show success message anyway
-      this.submitSuccess.set(true);
-      setTimeout(() => {
-        this.submitSuccess.set(false);
-      }, 5000);
-    } finally {
-      this.isSubmitting.set(false);
-    }
+        setTimeout(() => {
+          this.submitSuccess.set(false);
+        }, 5000);
+        this.isSubmitting.set(false);
+      },
+      error: (err) => {
+        console.error('Submission error:', err);
+        this.submitError.set('There was an error submitting your message. Please try again.');
+        this.isSubmitting.set(false);
+      }
+    });
   }
 
   updateField(field: keyof ContactForm, value: string) {

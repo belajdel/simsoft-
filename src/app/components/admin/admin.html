@@ -2,30 +2,34 @@
     <h1>SimSoft Admin Panel</h1>
 
     <!-- LOGIN SECTION -->
-    <div *ngIf="!isLoggedIn()" class="login-box">
-        <h2>Login</h2>
+    <div *ngIf="!isLoggedIn()" class="glass-panel login-box">
+        <h2>Administrator Login</h2>
         <div class="form-group">
-            <label>Username</label>
-            <input [(ngModel)]="username" type="text" placeholder="admin">
+            <label>Email</label>
+            <input [(ngModel)]="email" type="email" placeholder="Enter admin email">
         </div>
         <div class="form-group">
             <label>Password</label>
-            <input [(ngModel)]="password" type="password" placeholder="admin123">
+            <input [(ngModel)]="password" type="password" placeholder="Enter password" (keyup.enter)="login()">
         </div>
-        <p class="error" *ngIf="loginError">{{ loginError }}</p>
-        <button (click)="login()">Login</button>
+        <div class="error-message" *ngIf="loginError">{{ loginError }}</div>
+        <button (click)="login()">Sign In</button>
     </div>
 
     <!-- DASHBOARD SECTION -->
-    <div *ngIf="isLoggedIn()" class="dashboard">
+    <div *ngIf="isLoggedIn()" class="glass-panel dashboard">
         <div class="header">
-            <p>Welcome, Admin</p>
+            <p>Welcome, <strong>Admin</strong></p>
             <button (click)="logout()" class="logout-btn">Logout</button>
         </div>
 
-        <div class="content-editor">
-            <h3>Edit Website Content</h3>
+        <div class="tabs">
+            <button class="tab-btn" [class.active]="activeTab === 'general'" (click)="activeTab = 'general'">General Content</button>
+            <button class="tab-btn" [class.active]="activeTab === 'blog'" (click)="activeTab = 'blog'">Blog Posts</button>
+        </div>
 
+        <!-- GENERAL CONTENT TAB -->
+        <div class="content-editor" *ngIf="activeTab === 'general'">
             <div class="section">
                 <h4>Hero Section</h4>
                 <div class="form-group">
@@ -54,7 +58,79 @@
                 </div>
             </div>
 
-            <button (click)="saveContent()" class="save-btn">Save Changes</button>
+            <button (click)="saveContent()" class="save-btn">Save Content Changes</button>
         </div>
+
+        <!-- BLOG POSTS TAB -->
+        <div class="blog-editor" *ngIf="activeTab === 'blog'">
+            <div *ngIf="!editingPost">
+                <button class="add-btn" (click)="createNewPost()">+ Create New Post</button>
+                
+                <div class="blog-list">
+                    <div class="blog-item" *ngFor="let post of blogPosts">
+                        <div>
+                            <strong>{{ post.title || 'Untitled Post' }}</strong>
+                            <br>
+                            <span>{{ post.date | date }} - By {{ post.author }}</span>
+                        </div>
+                        <div class="blog-actions">
+                            <button class="btn-edit" (click)="editPost(post)">Edit</button>
+                            <button class="btn-delete" (click)="deletePost(post._id || post.id)">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POST EDITOR -->
+            <form class="editor-panel" *ngIf="editingPost" (ngSubmit)="savePost()" #postForm="ngForm">
+                <h3>{{ editingPost.id || editingPost._id ? 'Edit Post' : 'New Post' }}</h3>
+                
+                <div class="section">
+                    <h4>Post Details</h4>
+                    <div class="form-group">
+                        <label>Title <span class="required">*</span></label>
+                        <input name="title" [(ngModel)]="editingPost.title" type="text" placeholder="Post Title" required #titleCtrl="ngModel">
+                        <div class="error-text" *ngIf="titleCtrl.invalid && (titleCtrl.dirty || titleCtrl.touched)" style="color: #ff6b6b; font-size: 0.85rem; margin-top: 4px;">Title is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Excerpt <span class="required">*</span></label>
+                        <textarea name="excerpt" [(ngModel)]="editingPost.excerpt" rows="3" placeholder="Short description" required #excerptCtrl="ngModel"></textarea>
+                        <div class="error-text" *ngIf="excerptCtrl.invalid && (excerptCtrl.dirty || excerptCtrl.touched)" style="color: #ff6b6b; font-size: 0.85rem; margin-top: 4px;">Excerpt is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Content <span class="required">*</span></label>
+                        <textarea name="content" [(ngModel)]="editingPost.content" rows="8" placeholder="HTML content..." required #contentCtrl="ngModel"></textarea>
+                        <div class="error-text" *ngIf="contentCtrl.invalid && (contentCtrl.dirty || contentCtrl.touched)" style="color: #ff6b6b; font-size: 0.85rem; margin-top: 4px;">Content is required.</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h4>General Setup</h4>
+                    <div class="form-group">
+                        <label>Author <span class="required">*</span></label>
+                        <input name="author" [(ngModel)]="editingPost.author" type="text" required #authorCtrl="ngModel">
+                        <div class="error-text" *ngIf="authorCtrl.invalid && (authorCtrl.dirty || authorCtrl.touched)" style="color: #ff6b6b; font-size: 0.85rem; margin-top: 4px;">Author is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL</label>
+                        <input name="imageUrl" [(ngModel)]="editingPost.imageUrl" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>Tags (comma separated)</label>
+                        <input name="tags" [ngModel]="editingPost.tags?.join(', ')" (ngModelChange)="updateTags($event)" type="text" placeholder="e.g. ERP, Cloud, Security">
+                    </div>
+                </div>
+
+                <div class="editor-actions">
+                    <button type="submit" class="save-btn" style="margin-top: 0;" [disabled]="postForm.invalid">Save Post</button>
+                    <button type="button" class="btn-cancel" (click)="cancelEdit()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast-notification" [class.show]="toastMessage()">
+        {{ toastMessage() }}
     </div>
 </div>

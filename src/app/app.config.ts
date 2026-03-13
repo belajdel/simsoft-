@@ -3,6 +3,9 @@ import { provideRouter, withInMemoryScrolling, withViewTransitions, withComponen
 import { provideHttpClient, withFetch } from '@angular/common/http';
 
 import { routes } from './app.routes';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 
 export const appConfig: ApplicationConfig = {
   providers: [

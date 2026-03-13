@@ -11,6 +11,7 @@ import { Erreur } from './erreur/erreur';
 import { BlogList } from './components/blog/blog-list/blog-list';
 import { BlogDetail } from './components/blog/blog-detail/blog-detail';
 import { Faq } from './components/faq/faq';
+import { Admin } from './components/admin/admin';
 
 export const routes: Routes = [
   { path: '', component: Home, pathMatch: 'full' },
@@ -23,6 +24,7 @@ export const routes: Routes = [
   { path: 'blog', component: BlogList },
   { path: 'blog/:id', component: BlogDetail },
   { path: 'faq', component: Faq },
+  { path: 'admin', component: Admin },
   { path: '404', component: Erreur },
   { path: '**', redirectTo: '404' }
 ];
